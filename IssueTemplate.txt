@@ -1,0 +1,27 @@
+### Description
+
+<Description of the feature to be implemented>
+
+**Expected Results** 
+- [ ] <Expected Result 1>
+- [ ] <Expected Result 2>
+___
+
+### Tracking information
+
+**Opened by:** <Owner Name> (Refer the project calendar/tracker and remove this text in bracket)
+
+**Milestone:** <Milestone Name>
+**Tasks to be completed** (Refer the project calendar/tracker and remove this text in bracket)
+| Task ID | Task Name |
+| --- | ---|
+| ID 1 | Task Name 1 |
+| ID 2 | Task Name 2 |
+| ID 3 | Task Name 3 |
+
+___
+
+### Completion Criteria
+
+- [ ] <Completion criteria 1>
+- [ ] <Completion criteria 2>
