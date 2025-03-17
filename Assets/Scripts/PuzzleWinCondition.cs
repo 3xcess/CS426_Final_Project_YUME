@@ -1,20 +1,28 @@
 using UnityEngine;
+using static GameManager;
 
 public class PuzzleWinCondition : MonoBehaviour
 {
-    public GameObject winText; // Reference to UI text
+    public GameObject winText;
 
     void Start()
     {
-        winText.SetActive(false); // Hide win message at the start
+        winText.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Box") // Box reaches the target
+        if (other.gameObject.name == "Box")
         {
-            winText.SetActive(true); // Display Win Message
-            Debug.Log("Puzzle Solved! You Win!");
+            winText.SetActive(true);
+            GameManager.Instance.AddToTimer();
+            Destroy(other);
+        }
+    }
+
+    void Update(){
+        if (winText && Input.GetKeyDown(KeyCode.LeftShift)){
+            winText.SetActive(false);
         }
     }
 }

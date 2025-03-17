@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ClueSphere : MonoBehaviour
 {
-    public enum ClueType { Dialog, Endgame, PheoHints }
+    public enum ClueType { Dialog, Endgame, PheoHints, Health}
     public ClueType clueType;
 
     private void OnTriggerEnter(Collider other)

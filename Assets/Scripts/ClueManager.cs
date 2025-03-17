@@ -33,6 +33,14 @@ public class ClueManager : MonoBehaviour
       case ClueSphere.ClueType.PheoHints:
         message = "You found a clue: PheoHints";
         break;
+      case ClueSphere.ClueType.Health:
+        if(GameManager.Instance.getHealth() < 100){
+          message = "Restored HP for Pheo";
+          GameManager.Instance.AddToHealth();
+        } else {
+          message = "Pheo already has max HP";
+        }
+        break;
     }
 
     clueText.text = message;
