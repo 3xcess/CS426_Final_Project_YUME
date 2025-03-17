@@ -1,0 +1,10 @@
++Schedule and deliverable
+|
++--MILESTONE: Prototype A5
+| |
+| +--Health Bar for Pheo: Monday by 00:00 am [Estimate = 2 hrs]
+| +--Timer for Sando	: Monday by 00:00 am [Estimate = 2 hrs]
+| +--Logic to add time	: Monday by 00:00 am [Estimate = 4 hrs]
+| +--Logic to Add HP	: Monday by 00:00 am [Estimate = 2 hrs]
+| +--Final prototype Refinement	: Monday by 09:00 pm [Estimate = 6 hrs]
+| |
