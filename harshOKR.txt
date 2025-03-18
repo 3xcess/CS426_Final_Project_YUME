@@ -1,0 +1,9 @@
++Schedule and deliverable
+|
++--MILESTONE: Prototype A5
+| |
+| +--2 Worlds: Saturday by 00:00 am [Estimate = 2 hrs]
+| +--Switch mechanic implementation: Sunday by 2:00 am [Estimate = 2 hrs]
+| +--Charcters + mvmnt scripts: Monday by 2:00 pm [Estimate = 4 hrs]
+| +--Defeat Nightmare Mini Game: Sunday by 4:00 am [Estimate = 2 hrs]
+| |
