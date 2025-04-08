@@ -1,12 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Events;
 
-public class SceneTrigger : MonoBehaviour {
+public class SceneTrigger : MonoBehaviour
+{
+    [SerializeField] int sceneToLoad;
 
-    void OnTriggerEnter(Collider other){
-        GameManager.Instance.enterChallenge();
-        SceneManager.LoadScene(2);
+    void OnTriggerEnter(Collider other)
+{
+    if (GameManager.Instance == null)
+    {
+        Debug.LogError("GameManager is not set in the scene!");
+        return;
     }
-    
+
+    GameManager.Instance.enterChallenge();
+    SceneManager.LoadScene(sceneToLoad);
+}
 }
