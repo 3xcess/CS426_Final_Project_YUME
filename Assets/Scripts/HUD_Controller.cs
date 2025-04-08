@@ -1,17 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour{
     public static GameManager Instance;
-    public TMP_Text timerText;
-    public TMP_Text healthText;
+    public Image timerText;
+    public Image healthText;
     public GameObject gameOverPanel;
 
     private float timer = 60f;
-    private int health = 100;
+    private float health = 100f;
     private bool isInDream;
+    private bool isInChallenge = false;
     private float healthDecreaseTimer = 1f;
+    private int challengeCollection = 0;
 
     private void Awake(){
         if (Instance == null){
@@ -33,21 +36,23 @@ public class GameManager : MonoBehaviour{
     }
 
     private void Update(){
-        if (isInDream){
-            timer -= Time.deltaTime;
-            if (timer <= 0){
-                GameOver();
+        if(!isInChallenge){
+            if (isInDream){
+                timer -= Time.deltaTime;
+                if (timer <= 0){
+                    GameOver();
+                }
             }
-        }
-        else{
-            healthDecreaseTimer -= Time.deltaTime;
-            if (healthDecreaseTimer <= 0f){
-                health -= 1;
-                healthDecreaseTimer = 1f;
-            }
+            else{
+                healthDecreaseTimer -= Time.deltaTime;
+                if (healthDecreaseTimer <= 0f){
+                    health -= 1f;
+                    healthDecreaseTimer = 1f;
+                }
 
-            if (health <= 0){
-                GameOver();
+                if (health <= 0){
+                    GameOver();
+                }
             }
         }
 
@@ -55,8 +60,8 @@ public class GameManager : MonoBehaviour{
     }
 
     private void UpdateUI(){
-        timerText.text = "Time: " + Mathf.Max(0, (int)timer);
-        healthText.text = "Health: " + Mathf.Max(0, health);
+        timerText.fillAmount = timer / 60f;
+        healthText.fillAmount = health / 100f;
     }
 
     private void GameOver(){
@@ -69,10 +74,30 @@ public class GameManager : MonoBehaviour{
     }
 
     public void AddToHealth(){
-        health += 10;
+        health += 10f;
     }
 
-    public int getHealth(){
+    public void DamageHealth(float damage){
+        health -= damage;
+    }
+
+    public float getHealth(){
         return health;
+    }
+
+    public void enterChallenge(){
+        isInChallenge = true;
+    }
+
+    public void exitChallenge(){
+        isInChallenge = false;
+    }
+
+    public int getCollected(){
+        return challengeCollection;
+    }
+
+    public void incrementCollected(){
+        challengeCollection += 1;
     }
 }

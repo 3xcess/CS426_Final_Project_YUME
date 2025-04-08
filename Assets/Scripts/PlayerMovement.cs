@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 0.3f;
     public string nextSceneName; // Name of the scene to switch to
 
     private Rigidbody rb;
