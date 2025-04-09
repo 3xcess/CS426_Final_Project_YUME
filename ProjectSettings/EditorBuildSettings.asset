@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nightmare.unity
     guid: 5383f46d9dd274bcb850a6cb3f22ed26
+  - enabled: 1
+    path: Assets/Scenes/Minigame.unity
+    guid: 8e74bbfaed6ea4c4eae114700ecf7885
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
