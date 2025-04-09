@@ -17,7 +17,7 @@
 * [Task List](https://docs.google.com/spreadsheets/d/1taPDdcrC46CoKB_lu0br7GeofeiH4uXGav2GyW59KS0/edit?usp=sharing)
 * [Bug Tacker](https://github.com/3xcess/CS426_Final_Project_YUME/issues)
 * [Asset Source](https://github.com/3xcess/CS426_Final_Project_YUME/issues) *Disclaimer: All assets from the Unity Asset Store unless explicitly stated otherwise*
-* Demo links: [A5 - Prototype](https://drive.google.com/file/d/1G2fVeOl_RhjjZwZXZWWt6ypcQ0Tr1-ds/view?usp=sharing) || [A6 - Mechanim](https://piazza.com/class/m3z7e8cjd2x2p5/post/112)
+* Demo links: [A5 - Prototype](https://drive.google.com/file/d/1G2fVeOl_RhjjZwZXZWWt6ypcQ0Tr1-ds/view?usp=sharing) || [A6 - Mechanim](https://drive.google.com/file/d/1UvRbP1LN4cGhyywO9277SMsX0y2rRVLi/view?usp=drive_link)
 
 ## A6 Update
 
