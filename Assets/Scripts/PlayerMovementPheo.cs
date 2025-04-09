@@ -28,7 +28,7 @@ public class PlayerMovementPheo : MonoBehaviour
         MovePlayer();
         RotatePlayer();
 
-        if (Input.GetKeyDown(KeyCode.R) && !(SceneManager.GetActiveScene().name != "Challenge 1" || SceneManager.GetActiveScene().name != "Challenge 2" || SceneManager.GetActiveScene().name != "Challenge 3"))
+        if (Input.GetKeyDown(KeyCode.R) && (SceneManager.GetActiveScene().name != "Challenge 1" || SceneManager.GetActiveScene().name != "Challenge 2" || SceneManager.GetActiveScene().name != "Challenge 3"))
         {
             SwitchScene();
         }
