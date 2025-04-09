@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Treasure
   - Floor
+  - Pickup
   layers:
   - Default
   - TransparentFX
