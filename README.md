@@ -4,12 +4,12 @@
 
 **Team Members** : Harsh Kothari , Sujot Singh , Angel Ramirez
 **Development Milestones** 
-- [ ] Design Document - *3/05*
-- [ ] Assignment 5 - *3/19*
-- [ ] Assignment 6 - *3/08*
-- [ ] Alpha Test
-- [ ] Beta Test
-- [ ] Final Relaease
+- [x] Design Document - *3/05*
+- [x] Assignment 5 - *3/19*
+- [x] Assignment 6 - *3/08*
+- [x] Alpha Test
+- [x] Beta Test
+- [x] Final Relaease
 
 ## Important Links
 
@@ -22,22 +22,24 @@
 ## A6 Update
 
 ### Minimum Requirements
-- [ ] 3 Physics Constructs
-- [ ] 3 Mecanim use cases
-- [ ] 3 Forms of AI
-- [ ] 3 Uses of Lights and Textures
+- [x] 3 Physics Constructs
+- [x] 3 Mecanim use cases
+- [x] 3 Forms of AI
+- [x] 3 Uses of Lights and Textures
 
 ### Additional tasks completed
-- [ ] Added 3 unique scenes for each challenge faced by Pheo, each implementing a unique form of Physics construct, AI, and rigged Mecanims
-- [ ] Started Adding textures to the challenge scenarios (*Challenge 3, as of now*)
-- [ ] As per design document, introduced first level of verticality in the Dream World (Lower Level which aids Pheo)
-- [ ] Completed the initial layout and design of the Dream world's lower level (*Scene: DW_LowerLevel*)
-- [ ] Added Skyboxes where suitable skyboxes were found
-- [ ] Started with the texturing/designing of the main scenes (*Nightmare world has more progress as of writing this*)
-- [ ] Smoothed out the interaction between different scenes
-- [ ] Finalized textures for future use
-- [ ] Improved UI elements
-- [ ] Added an early placeholder for a cutscene
+- [x] Added 3 unique scenes for each challenge faced by Pheo, each implementing a unique form of Physics construct, AI, and rigged Mecanims
+- [x] Started Adding textures to the challenge scenarios (*Challenge 3, as of now*)
+- [x] As per design document, introduced first level of verticality in the Dream World (Lower Level which aids Pheo)
+- [x] Completed the initial layout and design of the Dream world's lower level (*Scene: DW_LowerLevel*)
+- [x] Added Skyboxes where suitable skyboxes were found
+- [x] Started with the texturing/designing of the main scenes (*Nightmare world has more progress as of writing this*)
+- [x] Smoothed out the interaction between different scenes
+- [x] Finalized textures for future use
+- [x] Improved UI elements
+- [x] Added an early placeholder for a cutscene
+- [ ] Improve Story Clues
+- [ ] Select Player Character
 
 ### Towards the game vision
 
@@ -48,6 +50,8 @@ The nightmare world has slowly but surely progressed towards the aesthetic requi
 Challenge 3 is the only challenge scenario we have been able to progress on so far aesthetically, but that is because our efforts were directed towards texturing other scenes. Regardless, we have a good plan going ahead for the scenes that still demand texturing.
 DW_LowerLevel is an example of a scene that we have been able to finish to a degree where we would believe it to be aesthetically finalized barring some minor tweaks as needed down the line.
 We still need to get better assets for our scene triggers and  Story Clues, which is to be priority for the next sprint.
+
+The Biggest task left unaccomplished during A6 has been us not being able to decide on our player models. 
 
 #### Mecanim and AI
 ***
