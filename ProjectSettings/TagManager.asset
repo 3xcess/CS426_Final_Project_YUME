@@ -4,6 +4,10 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - UI
+  - Floor
+  - Floor2
+  - Enemy
   - Ground
   - Treasure
   - Floor
@@ -14,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - PostProcessing
   - 

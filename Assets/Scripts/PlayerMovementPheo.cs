@@ -3,18 +3,21 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovementPheo : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 0.3f;
     public string nextSceneName; // Name of the scene to switch to
+    public float mouseSensitivity = 2f;
 
     private Rigidbody rb;
     private bool invertMovement = false; // Flag to determine inverted controls
+    private float rotationY = 0f;
+    private float rotationX = 0f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
         // Check which scene is currently active
-        if (SceneManager.GetActiveScene().name == "Nightmare") // Replace with actual scene name
+        if (SceneManager.GetActiveScene().name == "Nightmare" || SceneManager.GetActiveScene().name == "Challenge 1" || SceneManager.GetActiveScene().name == "Challenge 2") // Replace with actual scene name
         {
             invertMovement = true; // Enable inverted controls in Scene2
         }
@@ -23,8 +26,9 @@ public class PlayerMovementPheo : MonoBehaviour
     void Update()
     {
         MovePlayer();
+        RotatePlayer();
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && SceneManager.GetActiveScene().name != "Challenge 1")
         {
             SwitchScene();
         }
@@ -44,8 +48,15 @@ public class PlayerMovementPheo : MonoBehaviour
 
         Vector3 movement = new Vector3(moveX, 0, moveZ).normalized * speed ;
         rb.MovePosition(transform.position + movement);
-            rb.AddForce(movement, ForceMode.Force); // Apply continuous force for smooth movement
+    }
 
+    void RotatePlayer()
+    {
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        rotationY += mouseX;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        rotationX -= mouseY;
+        transform.rotation = Quaternion.Euler(rotationX, rotationY, 0); // Apply rotation to player
     }
 
     void SwitchScene()
