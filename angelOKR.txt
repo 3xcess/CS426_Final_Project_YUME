@@ -1,0 +1,9 @@
++Schedule and deliverable
+|
++--MILESTONE: Prototype A5
+| |
+| +--Story Clue - Dialogue: Monday by 00:00 am [Estimate = 2 hrs]
+| +--Story Clue - Endgame	: Monday by 00:00 am [Estimate = 2 hrs]
+| +--Story Clue - Pheo Hint	: Monday by 00:00 am [Estimate = 2 hrs]
+| +--Visibility for Pheo : Monday by 00:00 am [Estimate = 4 hrs]
+| |

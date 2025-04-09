@@ -4,6 +4,10 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - UI
+  - Floor
+  - Floor2
+  - Enemy
   - Ground
   layers:
   - Default
@@ -12,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
