@@ -2281,7 +2281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb532e8dfcceb5c49b2cce481a83bbfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 0
+  sceneToLoad: 4
 --- !u!23 &674152940
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour{
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode){
-        isInDream = scene.name == "Dreams";
+        isInDream = (scene.name == "Dreams" || scene.name == "DW_LowerLevel") ;
     }
 
     private void Update(){

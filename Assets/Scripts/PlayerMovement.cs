@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         RotatePlayer(); // Handle mouse rotation
         HandleJump(); 
 
-        if (Input.GetKeyDown(KeyCode.R)) 
+        if (Input.GetKeyDown(KeyCode.R) && SceneManager.GetActiveScene().name == "Dreams") 
         {
             SwitchScene();
         }
