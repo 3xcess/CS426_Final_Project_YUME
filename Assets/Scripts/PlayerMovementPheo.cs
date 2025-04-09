@@ -17,7 +17,7 @@ public class PlayerMovementPheo : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         // Check which scene is currently active
-        if (SceneManager.GetActiveScene().name == "Nightmare" || SceneManager.GetActiveScene().name == "Challenge 1") // Replace with actual scene name
+        if (SceneManager.GetActiveScene().name == "Nightmare" || SceneManager.GetActiveScene().name == "Challenge 1" || SceneManager.GetActiveScene().name == "Challenge 2") // Replace with actual scene name
         {
             invertMovement = true; // Enable inverted controls in Scene2
         }
