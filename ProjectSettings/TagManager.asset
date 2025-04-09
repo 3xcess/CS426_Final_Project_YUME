@@ -9,6 +9,8 @@ TagManager:
   - Floor2
   - Enemy
   - Ground
+  - Treasure
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - UI
   - Enemy
   - 
-  - 
+  - PostProcessing
   - 
   - 
   - 
