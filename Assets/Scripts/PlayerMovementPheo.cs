@@ -17,7 +17,7 @@ public class PlayerMovementPheo : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         // Check which scene is currently active
-        if (SceneManager.GetActiveScene().name == "Nightmare" || SceneManager.GetActiveScene().name == "Challenge 1" || SceneManager.GetActiveScene().name == "Challenge 2") // Replace with actual scene name
+        if (SceneManager.GetActiveScene().name == "Nightmare" || SceneManager.GetActiveScene().name == "Challenge 1" || SceneManager.GetActiveScene().name == "Challenge 2" || SceneManager.GetActiveScene().name == "Challenge 3")
         {
             invertMovement = true; // Enable inverted controls in Scene2
         }
@@ -28,7 +28,7 @@ public class PlayerMovementPheo : MonoBehaviour
         MovePlayer();
         RotatePlayer();
 
-        if (Input.GetKeyDown(KeyCode.R) && SceneManager.GetActiveScene().name != "Challenge 1")
+        if (Input.GetKeyDown(KeyCode.R) && !(SceneManager.GetActiveScene().name != "Challenge 1" || SceneManager.GetActiveScene().name != "Challenge 2" || SceneManager.GetActiveScene().name != "Challenge 3"))
         {
             SwitchScene();
         }
