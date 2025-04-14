@@ -32,26 +32,25 @@ public class EnemyAI : MonoBehaviour
         {
             case EnemyState.Idle:
                 Idle();
+                AudioManager.Instance.SetEnemyVolume(0.1f);
                 break;
             case EnemyState.Patrol:
                 Patrol();
+                AudioManager.Instance.SetEnemyVolume(0.2f);
                 break;
             case EnemyState.Chase:
                 Chase();
+                AudioManager.Instance.SetEnemyVolume(0.6f);
                 break;
             case EnemyState.Attack:
                 Attack();
+                AudioManager.Instance.SetEnemyVolume(1.0f);
                 break;
-            // case EnemyState.Flee:
-            //     Flee();
-            //     break;
-            // case EnemyState.Dead:
-            //     Dead();
-            //     break;
         }
 
         CheckTransitions();
     }
+    
 
     void Idle()
     {
