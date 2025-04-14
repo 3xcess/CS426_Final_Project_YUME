@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_in_A
       objectReference: {fileID: 0}
+    - target: {fileID: 2570822208046260622, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2947242575875554100, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -265,6 +269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_mid_C
       objectReference: {fileID: 0}
+    - target: {fileID: 2897758238768995823, guid: a97e1ac0d41f89a43945af96a89eea20, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -286,6 +294,10 @@ PrefabInstance:
     - target: {fileID: 2570822208046260622, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
       propertyPath: m_Name
       value: Grass_tile_in_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570822208046260622, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2947242575875554100, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
       propertyPath: m_LocalScale.x
@@ -364,6 +376,10 @@ PrefabInstance:
     - target: {fileID: 1711317155240648773, guid: c737b1adb3124ef46aa318f6e17a001a, type: 3}
       propertyPath: m_Name
       value: Grass_tile_in_C
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711317155240648773, guid: c737b1adb3124ef46aa318f6e17a001a, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2086293963418303231, guid: c737b1adb3124ef46aa318f6e17a001a, type: 3}
       propertyPath: m_LocalScale.x
@@ -499,6 +515,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone_patterns_A (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6507021931152843027, guid: a789d433e113de34b9552de762f25f10, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -576,6 +596,10 @@ PrefabInstance:
     - target: {fileID: 3163143124721415772, guid: 419f8a65d9cee1948b98725a8cb149e2, type: 3}
       propertyPath: m_Name
       value: Stone_patterns_triple cross
+      objectReference: {fileID: 0}
+    - target: {fileID: 3163143124721415772, guid: 419f8a65d9cee1948b98725a8cb149e2, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -707,6 +731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_in_A
       objectReference: {fileID: 0}
+    - target: {fileID: 2570822208046260622, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2947242575875554100, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -784,6 +812,10 @@ PrefabInstance:
     - target: {fileID: 1489245025425876698, guid: dfd1bca9ecbf29a419f474f49c39f62e, type: 3}
       propertyPath: m_Name
       value: Grass_tile_hole
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489245025425876698, guid: dfd1bca9ecbf29a419f474f49c39f62e, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2297131412403698784, guid: dfd1bca9ecbf29a419f474f49c39f62e, type: 3}
       propertyPath: m_LocalScale.x
@@ -919,6 +951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone_patterns_triple cross (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3163143124721415772, guid: 419f8a65d9cee1948b98725a8cb149e2, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1019,6 +1055,10 @@ PrefabInstance:
     - target: {fileID: 8613045256052117608, guid: a6642ff3ddabfe94f9f544fe5e950a0d, type: 3}
       propertyPath: m_Name
       value: Grass_tile_mid_D
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613045256052117608, guid: a6642ff3ddabfe94f9f544fe5e950a0d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 8992702925481036498, guid: a6642ff3ddabfe94f9f544fe5e950a0d, type: 3}
       propertyPath: m_LocalScale.x
@@ -1277,6 +1317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone_patterns_A
       objectReference: {fileID: 0}
+    - target: {fileID: 6507021931152843027, guid: a789d433e113de34b9552de762f25f10, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1298,6 +1342,10 @@ PrefabInstance:
     - target: {fileID: 3859980590578349573, guid: 1dfd0bd1c4821b649a95c441948f6f15, type: 3}
       propertyPath: m_Name
       value: Stone_patterns_Cross
+      objectReference: {fileID: 0}
+    - target: {fileID: 3859980590578349573, guid: 1dfd0bd1c4821b649a95c441948f6f15, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4529133903728045247, guid: 1dfd0bd1c4821b649a95c441948f6f15, type: 3}
       propertyPath: m_LocalScale.x
@@ -1433,6 +1481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_corner_A
       objectReference: {fileID: 0}
+    - target: {fileID: 6822428129391667738, guid: 9baced4e9ad602e448a8a160633fcd7f, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1510,6 +1562,10 @@ PrefabInstance:
     - target: {fileID: 6507021931152843027, guid: a789d433e113de34b9552de762f25f10, type: 3}
       propertyPath: m_Name
       value: Stone_patterns_A (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507021931152843027, guid: a789d433e113de34b9552de762f25f10, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1777,6 +1833,10 @@ PrefabInstance:
     - target: {fileID: 1646129490616437202, guid: 0980133d0f3367642b1659e27e587f66, type: 3}
       propertyPath: m_Name
       value: Grass_tile_in_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646129490616437202, guid: 0980133d0f3367642b1659e27e587f66, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2131305022880519016, guid: 0980133d0f3367642b1659e27e587f66, type: 3}
       propertyPath: m_LocalScale.x
@@ -2082,6 +2142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_in_B
       objectReference: {fileID: 0}
+    - target: {fileID: 1646129490616437202, guid: 0980133d0f3367642b1659e27e587f66, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2131305022880519016, guid: 0980133d0f3367642b1659e27e587f66, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -2159,6 +2223,10 @@ PrefabInstance:
     - target: {fileID: 2570822208046260622, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
       propertyPath: m_Name
       value: Grass_tile_in_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570822208046260622, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2947242575875554100, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
       propertyPath: m_LocalScale.x
@@ -2418,6 +2486,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone_patterns_A (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6507021931152843027, guid: a789d433e113de34b9552de762f25f10, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2617,6 +2689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone_patterns_triple cross (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3163143124721415772, guid: 419f8a65d9cee1948b98725a8cb149e2, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2638,6 +2714,10 @@ PrefabInstance:
     - target: {fileID: 1711317155240648773, guid: c737b1adb3124ef46aa318f6e17a001a, type: 3}
       propertyPath: m_Name
       value: Grass_tile_in_C
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711317155240648773, guid: c737b1adb3124ef46aa318f6e17a001a, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2086293963418303231, guid: c737b1adb3124ef46aa318f6e17a001a, type: 3}
       propertyPath: m_LocalScale.x
@@ -2773,6 +2853,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone_patterns_triple cross (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3163143124721415772, guid: 419f8a65d9cee1948b98725a8cb149e2, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2850,6 +2934,10 @@ PrefabInstance:
     - target: {fileID: 6507021931152843027, guid: a789d433e113de34b9552de762f25f10, type: 3}
       propertyPath: m_Name
       value: Stone_patterns_A (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507021931152843027, guid: a789d433e113de34b9552de762f25f10, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2929,6 +3017,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_mid_A
       objectReference: {fileID: 0}
+    - target: {fileID: 8788174225223438910, guid: 8fa247ec3caa7aa4ca06fff9559f656a, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2950,6 +3042,10 @@ PrefabInstance:
     - target: {fileID: 2570822208046260622, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
       propertyPath: m_Name
       value: Grass_tile_in_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570822208046260622, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2947242575875554100, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
       propertyPath: m_LocalScale.x
@@ -3193,6 +3289,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_corner_A
       objectReference: {fileID: 0}
+    - target: {fileID: 6822428129391667738, guid: 9baced4e9ad602e448a8a160633fcd7f, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3271,6 +3371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_mid_C
       objectReference: {fileID: 0}
+    - target: {fileID: 2897758238768995823, guid: a97e1ac0d41f89a43945af96a89eea20, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3292,6 +3396,10 @@ PrefabInstance:
     - target: {fileID: 8613045256052117608, guid: a6642ff3ddabfe94f9f544fe5e950a0d, type: 3}
       propertyPath: m_Name
       value: Grass_tile_mid_D
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613045256052117608, guid: a6642ff3ddabfe94f9f544fe5e950a0d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 8992702925481036498, guid: a6642ff3ddabfe94f9f544fe5e950a0d, type: 3}
       propertyPath: m_LocalScale.x
@@ -3370,6 +3478,10 @@ PrefabInstance:
     - target: {fileID: 204097237574624169, guid: 87908927607c9a542ab20b69e61307f8, type: 3}
       propertyPath: m_Name
       value: Grass_tile_mid_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 204097237574624169, guid: 87908927607c9a542ab20b69e61307f8, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 693213458240796947, guid: 87908927607c9a542ab20b69e61307f8, type: 3}
       propertyPath: m_LocalScale.x
@@ -3488,6 +3600,10 @@ PrefabInstance:
     - target: {fileID: 204097237574624169, guid: 87908927607c9a542ab20b69e61307f8, type: 3}
       propertyPath: m_Name
       value: Grass_tile_mid_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 204097237574624169, guid: 87908927607c9a542ab20b69e61307f8, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 693213458240796947, guid: 87908927607c9a542ab20b69e61307f8, type: 3}
       propertyPath: m_LocalScale.x
@@ -3703,6 +3819,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_mid_B
       objectReference: {fileID: 0}
+    - target: {fileID: 204097237574624169, guid: 87908927607c9a542ab20b69e61307f8, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 693213458240796947, guid: 87908927607c9a542ab20b69e61307f8, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -3780,6 +3900,10 @@ PrefabInstance:
     - target: {fileID: 204097237574624169, guid: 87908927607c9a542ab20b69e61307f8, type: 3}
       propertyPath: m_Name
       value: Grass_tile_mid_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 204097237574624169, guid: 87908927607c9a542ab20b69e61307f8, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 693213458240796947, guid: 87908927607c9a542ab20b69e61307f8, type: 3}
       propertyPath: m_LocalScale.x
@@ -4268,6 +4392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_mid_A
       objectReference: {fileID: 0}
+    - target: {fileID: 8788174225223438910, guid: 8fa247ec3caa7aa4ca06fff9559f656a, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4346,6 +4474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_mid_C
       objectReference: {fileID: 0}
+    - target: {fileID: 2897758238768995823, guid: a97e1ac0d41f89a43945af96a89eea20, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4367,6 +4499,10 @@ PrefabInstance:
     - target: {fileID: 8613045256052117608, guid: a6642ff3ddabfe94f9f544fe5e950a0d, type: 3}
       propertyPath: m_Name
       value: Grass_tile_mid_D
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613045256052117608, guid: a6642ff3ddabfe94f9f544fe5e950a0d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 8992702925481036498, guid: a6642ff3ddabfe94f9f544fe5e950a0d, type: 3}
       propertyPath: m_LocalScale.x
@@ -4445,6 +4581,10 @@ PrefabInstance:
     - target: {fileID: 2570822208046260622, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
       propertyPath: m_Name
       value: Grass_tile_in_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570822208046260622, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2947242575875554100, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
       propertyPath: m_LocalScale.x
@@ -4580,6 +4720,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone_patterns_A (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6507021931152843027, guid: a789d433e113de34b9552de762f25f10, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4601,6 +4745,10 @@ PrefabInstance:
     - target: {fileID: 1711317155240648773, guid: c737b1adb3124ef46aa318f6e17a001a, type: 3}
       propertyPath: m_Name
       value: Grass_tile_in_C
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711317155240648773, guid: c737b1adb3124ef46aa318f6e17a001a, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2086293963418303231, guid: c737b1adb3124ef46aa318f6e17a001a, type: 3}
       propertyPath: m_LocalScale.x
@@ -4679,6 +4827,10 @@ PrefabInstance:
     - target: {fileID: 1711317155240648773, guid: c737b1adb3124ef46aa318f6e17a001a, type: 3}
       propertyPath: m_Name
       value: Grass_tile_in_C
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711317155240648773, guid: c737b1adb3124ef46aa318f6e17a001a, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2086293963418303231, guid: c737b1adb3124ef46aa318f6e17a001a, type: 3}
       propertyPath: m_LocalScale.x
@@ -4907,6 +5059,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_in_B
       objectReference: {fileID: 0}
+    - target: {fileID: 1646129490616437202, guid: 0980133d0f3367642b1659e27e587f66, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2131305022880519016, guid: 0980133d0f3367642b1659e27e587f66, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -5120,6 +5276,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone_patterns_A (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6507021931152843027, guid: a789d433e113de34b9552de762f25f10, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5238,6 +5398,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_corner_A
       objectReference: {fileID: 0}
+    - target: {fileID: 6822428129391667738, guid: 9baced4e9ad602e448a8a160633fcd7f, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5315,6 +5479,10 @@ PrefabInstance:
     - target: {fileID: 8788174225223438910, guid: 8fa247ec3caa7aa4ca06fff9559f656a, type: 3}
       propertyPath: m_Name
       value: Grass_tile_mid_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788174225223438910, guid: 8fa247ec3caa7aa4ca06fff9559f656a, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5394,6 +5562,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_mid_C
       objectReference: {fileID: 0}
+    - target: {fileID: 2897758238768995823, guid: a97e1ac0d41f89a43945af96a89eea20, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5415,6 +5587,10 @@ PrefabInstance:
     - target: {fileID: 2570822208046260622, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
       propertyPath: m_Name
       value: Grass_tile_in_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570822208046260622, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2947242575875554100, guid: 83d67be4684cd844499332220fd99bdb, type: 3}
       propertyPath: m_LocalScale.x
@@ -5644,6 +5820,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_mid_D
       objectReference: {fileID: 0}
+    - target: {fileID: 8613045256052117608, guid: a6642ff3ddabfe94f9f544fe5e950a0d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 8992702925481036498, guid: a6642ff3ddabfe94f9f544fe5e950a0d, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -5860,6 +6040,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_in_B
       objectReference: {fileID: 0}
+    - target: {fileID: 1646129490616437202, guid: 0980133d0f3367642b1659e27e587f66, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2131305022880519016, guid: 0980133d0f3367642b1659e27e587f66, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -5994,6 +6178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone_patterns_A (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6507021931152843027, guid: a789d433e113de34b9552de762f25f10, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6072,6 +6260,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_tile_mid_A
       objectReference: {fileID: 0}
+    - target: {fileID: 8788174225223438910, guid: 8fa247ec3caa7aa4ca06fff9559f656a, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6149,6 +6341,10 @@ PrefabInstance:
     - target: {fileID: 6822428129391667738, guid: 9baced4e9ad602e448a8a160633fcd7f, type: 3}
       propertyPath: m_Name
       value: Grass_tile_corner_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 6822428129391667738, guid: 9baced4e9ad602e448a8a160633fcd7f, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6326,7 +6522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14413873259114f4abc711beb3651a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 5
+  jumpForce: 5
   nextSceneName: Dreams
   mouseSensitivity: 2
 --- !u!54 &2099190142
