@@ -1,17 +1,21 @@
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     public AudioSource enemyAudioSource;
-
+    public AudioSource sfxSource;
     private Coroutine volumeFadeCoroutine;
 
     void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else
             Destroy(gameObject);
     }
@@ -20,7 +24,19 @@ public class AudioManager : MonoBehaviour
     {
         if (enemyAudioSource == null) return;
 
-        // Stop any existing fade before starting a new one
+        if (SceneManager.GetActiveScene().name == "Challenge 2")
+        {
+            if (!enemyAudioSource.isPlaying)
+            {
+                enemyAudioSource.Play();
+            }
+        }
+        else
+        {
+            return; // Exit early if not in Challenge 2
+        }
+
+        // Fade volume
         if (volumeFadeCoroutine != null)
             StopCoroutine(volumeFadeCoroutine);
 
@@ -35,6 +51,14 @@ public class AudioManager : MonoBehaviour
         {
             enemyAudioSource.volume = Mathf.MoveTowards(enemyAudioSource.volume, targetVolume, Time.deltaTime * speed);
             yield return null;
+        }
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        if (clip != null && sfxSource != null)
+        {
+            sfxSource.PlayOneShot(clip);
         }
     }
 }

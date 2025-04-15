@@ -5,19 +5,21 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     private Animator anim;
+    private NavMeshAgent agent;
     public EnemyState currentState;
     public Transform[] patrolPoints;
-    private int currentPatrolIndex;
     public Transform player;
     public float chaseRange = 10f;
-    public float attackRange = 1f;
+    public float attackRange = 10f;
     public float fleeHealthThreshold = 20f;
-    private NavMeshAgent agent;
-    private float health = 100f;
-    private bool isWaitingAtPoint = false;
     public float damage = 5f;
     public float attackCooldown = 1.5f;
+
+    private int currentPatrolIndex;
+    private float health = 100f;
+    private bool isWaitingAtPoint = false;
     private bool isAttacking = false;
+    private bool isDeadHandled = false;
 
     void Start()
     {
@@ -28,29 +30,33 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
+        HandleState();
+        CheckTransitions();
+    }
+
+    void HandleState()
+    {
         switch (currentState)
         {
             case EnemyState.Idle:
                 Idle();
-                AudioManager.Instance.SetEnemyVolume(0.1f);
                 break;
             case EnemyState.Patrol:
                 Patrol();
-                AudioManager.Instance.SetEnemyVolume(0.2f);
                 break;
             case EnemyState.Chase:
                 Chase();
-                AudioManager.Instance.SetEnemyVolume(0.6f);
                 break;
             case EnemyState.Attack:
                 Attack();
-                AudioManager.Instance.SetEnemyVolume(1.0f);
+                break;
+            case EnemyState.Dead:
+                Dead();
                 break;
         }
 
-        CheckTransitions();
+        SetAudioVolume();
     }
-    
 
     void Idle()
     {
@@ -63,9 +69,9 @@ public class EnemyAI : MonoBehaviour
         if (patrolPoints.Length == 0 || isWaitingAtPoint) return;
 
         agent.isStopped = false;
+        agent.speed = 2f;
         agent.destination = patrolPoints[currentPatrolIndex].position;
         anim.SetTrigger("Patrol");
-        agent.speed = 2f;
 
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
@@ -98,6 +104,7 @@ public class EnemyAI : MonoBehaviour
     void Attack()
     {
         agent.isStopped = true;
+
         Vector3 playerPosition = new Vector3(player.position.x, transform.position.y, player.position.z);
         transform.LookAt(playerPosition);
         anim.SetTrigger("Attack");
@@ -113,30 +120,22 @@ public class EnemyAI : MonoBehaviour
         while (currentState == EnemyState.Attack)
         {
             GameManager.Instance.DamageHealth(damage);
-
             yield return new WaitForSeconds(attackCooldown);
         }
 
         isAttacking = false;
     }
 
-    // void Flee()
-    // {
-    //     Vector3 dir = (transform.position - player.position).normalized;
-    //     Vector3 fleePos = transform.position + dir * 10f;
+    void Dead()
+    {
+        if (isDeadHandled) return;
 
-    //     agent.isStopped = false;
-    //     agent.destination = fleePos;
-    //     // animator.Play("Run");
-    // }
-
-    // void Dead()
-    // {
-    //     agent.isStopped = true;
-    //     // animator.Play("Die");
-    //     // Disable further logic if needed
-    //     this.enabled = false;
-    // }
+        isDeadHandled = true;
+        agent.isStopped = true;
+        StopAllCoroutines();
+        // anim.SetTrigger("Die"); // Optional
+        Destroy(gameObject, 2f);
+    }
 
     void CheckTransitions()
     {
@@ -164,9 +163,27 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    // Call this when taking damage
     public void TakeDamage(float damage)
     {
         health -= damage;
+
+        if (health <= 0)
+        {
+            currentState = EnemyState.Dead;
+        }
+    }
+
+    void SetAudioVolume()
+    {
+        float volume = currentState switch
+        {
+            EnemyState.Idle => 0.1f,
+            EnemyState.Patrol => 0.2f,
+            EnemyState.Chase => 0.5f,
+            EnemyState.Attack => 1.0f,
+            _ => 0f
+        };
+
+        AudioManager.Instance.SetEnemyVolume(volume);
     }
 }
