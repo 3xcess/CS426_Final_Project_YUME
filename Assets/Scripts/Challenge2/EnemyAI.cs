@@ -177,7 +177,7 @@ public class EnemyAI : MonoBehaviour
     {
         currentState = EnemyState.Dead;
         GameManager.Instance.exitChallenge();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Nightmare");
     }
 
     void SetAudioVolume()

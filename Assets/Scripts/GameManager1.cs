@@ -87,7 +87,8 @@ void Start() {
             if (audioSource != null)
             {
                 if (failSound != null)
-                    audioSource.PlayOneShot(failSound);
+                {
+                    audioSource.PlayOneShot(failSound, 0.1f);}
                 else
                     audioSource.Play(); // fallback if default assigned
             }            

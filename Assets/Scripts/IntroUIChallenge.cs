@@ -11,9 +11,11 @@ public class IntroUIChallenge : MonoBehaviour
     {
         introPanel.SetActive(true);
         backgroundImage.SetActive(true);
+        
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        
 
         Time.timeScale = 0f; // Pause game
     }
@@ -30,6 +32,17 @@ public class IntroUIChallenge : MonoBehaviour
             Cursor.visible = true;
 
             Time.timeScale = 0f; // Pause again
+        }
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+              introPanel.SetActive(false);
+            backgroundImage.SetActive(false);
+            hasIntroBeenDismissed = true;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            Time.timeScale = 1f; // Pause again
         }
     }
 

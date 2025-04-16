@@ -108,6 +108,6 @@ public class PlayerMovementPheo : MonoBehaviour
 
     void SwitchScene()
     {
-        SceneManager.LoadScene(nextSceneName);
+        SceneManager.LoadScene("Dreams");
     }
 }
