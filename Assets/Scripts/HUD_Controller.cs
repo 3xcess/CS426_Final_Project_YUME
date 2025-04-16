@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour{
     private bool isInChallenge = false;
     private float healthDecreaseTimer = 1f;
     private int challengeCollection = 0;
+    public bool hasGameStarted = false; // ← make it public
+    public bool hasIntroPlayed = false;
 
     private void Awake(){
         if (Instance == null){
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour{
     }
 
     private void Update(){
+        if (!hasGameStarted) return;
         if(!isInChallenge){
             if (isInDream){
                 timer -= Time.deltaTime;

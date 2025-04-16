@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Collections;  
 
 public class GameManager1 : MonoBehaviour {
+    [Header("Sound Settings")]
+    public AudioSource audioSource;
+    public AudioClip failSound;
     public Transform player;
     public float moveDistance = 3f;
     private Vector3 spawnPoint;
@@ -16,7 +19,7 @@ public class GameManager1 : MonoBehaviour {
     float gridSize = moveDistance; // usually 3f
     return new Vector3(
         Mathf.Round(pos.x / gridSize) * gridSize,
-        0f, // 👈 Important for accurate tile matching
+        0f, 
         Mathf.Round(pos.z / gridSize) * gridSize
     );
 }
@@ -54,30 +57,21 @@ void Start() {
 }
 }
  public void Move(string direction) {
-    // Vector3 dir = DirectionToVector(direction);
-    
-    // Vector3 intendedMove = player.position + dir * moveDistance;
-    // Vector3 testPosition = RoundToGrid(intendedMove); // for comparison
-    // Vector3 nextPosition = new Vector3(testPosition.x, 1.5f, testPosition.z); // for actual movement
-
-    // if (!validPositions.Contains(testPosition)) {
-    //     Debug.Log("❌ Can't move there — no tile at " + testPosition);
-    //     return;
-    // }
+ 
      Vector3 dir = DirectionToVector(direction);
 
-    // 🧠 Step 1: Round current position to nearest tile center
+   
     Vector3 currentTile = RoundToGrid(player.position);
 
-    // 🧠 Step 2: Calculate next tile center from current tile
+    
     Vector3 nextTile = currentTile + dir * moveDistance;
 
-    // 🧠 Step 3: Separate test position (for comparison)
-    Vector3 testPosition = new Vector3(nextTile.x, 0f, nextTile.z); // for lookup
-    Vector3 nextPosition = new Vector3(nextTile.x, 1.5f, nextTile.z); // final move position with Y
+    
+    Vector3 testPosition = new Vector3(nextTile.x, 0f, nextTile.z); 
+    Vector3 nextPosition = new Vector3(nextTile.x, 1.5f, nextTile.z); 
 
     if (!validPositions.Contains(testPosition)) {
-        Debug.Log("❌ Can't move there — no tile at " + testPosition);
+        Debug.Log(" Can't move there — no tile at " + testPosition);
         return;
     }
 
@@ -89,7 +83,14 @@ void Start() {
 
             if (uiManager != null)
                 uiManager.ShowWrongMoveMessage();
-
+                
+            if (audioSource != null)
+            {
+                if (failSound != null)
+                    audioSource.PlayOneShot(failSound);
+                else
+                    audioSource.Play(); // fallback if default assigned
+            }            
             StartCoroutine(DelayedRespawn());
             lastTwoMoves.Clear();
             return;

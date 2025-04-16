@@ -16,7 +16,13 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>(); 
-        Cursor.lockState = CursorLockMode.Locked; // Lock cursor to center of screen
+        //Cursor.lockState = CursorLockMode.Locked; // Lock cursor to center of screen
+    }
+        public void StartGame()
+    {
+        // ✅ Only lock cursor when gameplay begins
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
