@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour{
     public Image timerText;
     public Image healthText;
     public GameObject gameOverPanel;
+    public TMP_Text keysCollected;
+    public GameObject keysPanel;
 
     private float timer = 60f;
     private float health = 100f;
@@ -15,6 +17,7 @@ public class GameManager : MonoBehaviour{
     private bool isInChallenge = false;
     private float healthDecreaseTimer = 1f;
     private int challengeCollection = 0;
+    private int keys = 0;
 
     private void Awake(){
         if (Instance == null){
@@ -62,6 +65,11 @@ public class GameManager : MonoBehaviour{
     private void UpdateUI(){
         timerText.fillAmount = timer / 60f;
         healthText.fillAmount = health / 100f;
+        if(keys > 0){
+            keysCollected.SetText(keys.ToString());
+        } else {
+            keysPanel.SetActive(false);
+        }
     }
 
     private void GameOver(){
@@ -70,7 +78,7 @@ public class GameManager : MonoBehaviour{
     }
 
     public void AddToTimer(){
-        timer += 5f;
+        timer += 10f;
     }
 
     public void AddToHealth(){
@@ -99,5 +107,18 @@ public class GameManager : MonoBehaviour{
 
     public void incrementCollected(){
         challengeCollection += 1;
+    }
+
+    public void getKey(){
+        keysPanel.SetActive(true);
+        keys += 1;
+    }
+
+    public void useKey(){
+        keys -= 1;
+        if(keys < 0){
+            keysPanel.SetActive(false);
+            keys = 0;
+        }
     }
 }

@@ -76,7 +76,7 @@ public class WaveManager : MonoBehaviour
 
             foreach (RaycastHit hit in hits){
 
-                if (hit.collider.CompareTag("Floor")){
+                if (hit.collider.CompareTag("Floor2")){
                     NavMeshHit navHit;
 
                     if (NavMesh.SamplePosition(hit.point, out navHit, 2f, NavMesh.AllAreas)){

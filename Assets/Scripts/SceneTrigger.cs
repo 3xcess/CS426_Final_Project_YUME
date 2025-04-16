@@ -15,6 +15,9 @@ public class SceneTrigger : MonoBehaviour
     if(SceneManager.GetActiveScene().name == "Nightmare"){
         GameManager.Instance.enterChallenge();
     }
+    if(sceneToLoad == 5){
+        GameManager.Instance.getKey();
+    }
     SceneManager.LoadScene(sceneToLoad);
 }
 }

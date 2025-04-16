@@ -1,9 +1,11 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ClueManager : MonoBehaviour
 {
   public static ClueManager Instance;
+  public Image img;
 
   public TMP_Text clueText;
   private bool isShowingClue = false;
@@ -16,6 +18,7 @@ public class ClueManager : MonoBehaviour
       Destroy(gameObject);
 
     clueText.gameObject.SetActive(false);
+    img.gameObject.SetActive(false);
   }
 
   public void ShowClue(ClueSphere.ClueType clueType)
@@ -45,6 +48,7 @@ public class ClueManager : MonoBehaviour
 
     clueText.text = message;
     clueText.gameObject.SetActive(true);
+    img.gameObject.SetActive(true);
     isShowingClue = true;
   }
 
@@ -53,6 +57,7 @@ public class ClueManager : MonoBehaviour
     if (isShowingClue && Input.GetKeyDown(KeyCode.LeftShift))
     {
       clueText.gameObject.SetActive(false);
+      img.gameObject.SetActive(false);
       isShowingClue = false;
     }
   }
