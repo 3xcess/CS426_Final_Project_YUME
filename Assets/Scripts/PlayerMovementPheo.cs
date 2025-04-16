@@ -1,63 +1,109 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMovementPheo : MonoBehaviour
 {
-    public float speed = 0.3f;
-    public string nextSceneName; // Name of the scene to switch to
+    public float speed = 5f;
+    public float jumpForce = 5f;
+    public string nextSceneName;
     public float mouseSensitivity = 2f;
+    public float gravity = -9.81f;
 
-    private Rigidbody rb;
-    private bool invertMovement = false; // Flag to determine inverted controls
+    private CharacterController controller;
+    private Animator anim;
+    private bool isGrounded = true;
+    private bool invertMovement = false;
     private float rotationY = 0f;
-    private float rotationX = 0f;
+    private Vector3 velocity;
+
+    private static readonly HashSet<string> InvertScenes = new HashSet<string>
+    {
+        "Nightmare", "Challenge 1", "Challenge 2", "Challenge 3"
+    };
+
+    // Animator parameter hashes for better performance
+    private static readonly int SpeedHash = Animator.StringToHash("Speed");
+    private static readonly int JumpHash = Animator.StringToHash("Jump");
+    private static readonly int AttackHash = Animator.StringToHash("Attack");
+    private static readonly int BackwardHash = Animator.StringToHash("Backward");
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
+        Cursor.lockState = CursorLockMode.Locked;
 
-        // Check which scene is currently active
-        if (SceneManager.GetActiveScene().name == "Nightmare" || SceneManager.GetActiveScene().name == "Challenge 1" || SceneManager.GetActiveScene().name == "Challenge 2" || SceneManager.GetActiveScene().name == "Challenge 3")
-        {
-            invertMovement = true; // Enable inverted controls in Scene2
-        }
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (InvertScenes.Contains(currentScene))
+            invertMovement = true;
     }
 
     void Update()
     {
-        MovePlayer();
         RotatePlayer();
+        HandleMovement();
+        HandleJump();
 
-        if(Input.GetKeyDown(KeyCode.R)&&SceneManager.GetActiveScene().name == "Nightmare")//if (Input.GetKeyDown(KeyCode.R) && !(SceneManager.GetActiveScene().name != "Challenge 1" || SceneManager.GetActiveScene().name != "Challenge 2" || SceneManager.GetActiveScene().name != "Challenge 3"))
+        if (Input.GetKeyDown(KeyCode.R) && InvertScenes.Contains(SceneManager.GetActiveScene().name))
         {
-            Debug.Log("Switching scene...");
             SwitchScene();
         }
     }
 
-    void MovePlayer()
+    void HandleMovement()
     {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+        isGrounded = controller.isGrounded;
 
-        // Invert controls if in Scene2
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveZ = Input.GetAxisRaw("Vertical");
+        bool isAttackPressed = Input.GetButtonDown("Fire1");
+
         if (invertMovement)
         {
             moveX = -moveX;
             moveZ = -moveZ;
         }
 
-        Vector3 movement = new Vector3(moveX, 0, moveZ).normalized * speed ;
-        rb.MovePosition(transform.position + movement);
+        Vector3 move = transform.right * moveX + transform.forward * moveZ;
+        controller.Move(move * speed * Time.deltaTime);
+
+        // Apply gravity
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
+
+        // Animator controls
+        float movementSpeed = new Vector2(moveX, moveZ).magnitude;
+        anim.SetFloat(SpeedHash, movementSpeed);
+        anim.SetBool(BackwardHash, moveZ < 0);
+
+        if (isAttackPressed)
+        {
+            anim.SetTrigger(AttackHash);
+
+        }
+    }
+
+    void HandleJump()
+    {
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+            anim.SetTrigger(JumpHash);
+        }
     }
 
     void RotatePlayer()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         rotationY += mouseX;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-        rotationX -= mouseY;
-        transform.rotation = Quaternion.Euler(rotationX, rotationY, 0); // Apply rotation to player
+        transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
     }
 
     void SwitchScene()

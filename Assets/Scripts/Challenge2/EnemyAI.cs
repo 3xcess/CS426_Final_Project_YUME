@@ -1,32 +1,44 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyAI : MonoBehaviour
 {
     private Animator anim;
+    private NavMeshAgent agent;
     public EnemyState currentState;
     public Transform[] patrolPoints;
-    private int currentPatrolIndex;
     public Transform player;
     public float chaseRange = 10f;
-    public float attackRange = 1f;
+    public float attackRange = 10f;
     public float fleeHealthThreshold = 20f;
-    private NavMeshAgent agent;
-    private float health = 100f;
-    private bool isWaitingAtPoint = false;
     public float damage = 5f;
     public float attackCooldown = 1.5f;
+
+    private int currentPatrolIndex;
+    private EnemyHealthManager healthManager;
+    private bool isWaitingAtPoint = false;
     private bool isAttacking = false;
+    private bool isDeadHandled = false;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         currentState = EnemyState.Patrol;
+
+        healthManager = GetComponent<EnemyHealthManager>();
+        healthManager.onDeath += HandleDeath;
     }
 
     void Update()
+    {
+        HandleState();
+        CheckTransitions();
+    }
+
+    void HandleState()
     {
         switch (currentState)
         {
@@ -42,15 +54,12 @@ public class EnemyAI : MonoBehaviour
             case EnemyState.Attack:
                 Attack();
                 break;
-            // case EnemyState.Flee:
-            //     Flee();
-            //     break;
-            // case EnemyState.Dead:
-            //     Dead();
-            //     break;
+            case EnemyState.Dead:
+                Dead();
+                break;
         }
 
-        CheckTransitions();
+        SetAudioVolume();
     }
 
     void Idle()
@@ -64,9 +73,9 @@ public class EnemyAI : MonoBehaviour
         if (patrolPoints.Length == 0 || isWaitingAtPoint) return;
 
         agent.isStopped = false;
+        agent.speed = 2f;
         agent.destination = patrolPoints[currentPatrolIndex].position;
         anim.SetTrigger("Patrol");
-        agent.speed = 2f;
 
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
@@ -99,6 +108,7 @@ public class EnemyAI : MonoBehaviour
     void Attack()
     {
         agent.isStopped = true;
+
         Vector3 playerPosition = new Vector3(player.position.x, transform.position.y, player.position.z);
         transform.LookAt(playerPosition);
         anim.SetTrigger("Attack");
@@ -114,40 +124,33 @@ public class EnemyAI : MonoBehaviour
         while (currentState == EnemyState.Attack)
         {
             GameManager.Instance.DamageHealth(damage);
-
             yield return new WaitForSeconds(attackCooldown);
         }
 
         isAttacking = false;
     }
 
-    // void Flee()
-    // {
-    //     Vector3 dir = (transform.position - player.position).normalized;
-    //     Vector3 fleePos = transform.position + dir * 10f;
+    void Dead()
+    {
+        if (isDeadHandled) return;
 
-    //     agent.isStopped = false;
-    //     agent.destination = fleePos;
-    //     // animator.Play("Run");
-    // }
+        isDeadHandled = true;
+        agent.isStopped = true;
+        StopAllCoroutines();
+        // anim.SetTrigger("Die"); // Optional
+        Destroy(gameObject, 2f);
 
-    // void Dead()
-    // {
-    //     agent.isStopped = true;
-    //     // animator.Play("Die");
-    //     // Disable further logic if needed
-    //     this.enabled = false;
-    // }
+    }
 
     void CheckTransitions()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (health <= 0)
+        if (healthManager.IsDead())
         {
             currentState = EnemyState.Dead;
         }
-        else if (health < fleeHealthThreshold)
+        else if (healthManager.currentHealth < fleeHealthThreshold)
         {
             currentState = EnemyState.Flee;
         }
@@ -165,9 +168,31 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    // Call this when taking damage
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        healthManager.TakeDamage(damage);
+    }
+
+    void HandleDeath()
+    {
+        currentState = EnemyState.Dead;
+        GameManager.Instance.exitChallenge();
+        SceneManager.LoadScene(1);
+    }
+
+    void SetAudioVolume()
+    {
+        float volume = currentState switch
+        {
+          EnemyState.Idle => 0.1f,
+          EnemyState.Patrol => 0.2f,
+          EnemyState.Chase => 0.5f,
+          EnemyState.Attack => 1.0f,
+          EnemyState.Flee => 1.0f,
+          EnemyState.Dead => 0f,
+          _ => 0.1f
+        };
+
+        AudioManager.Instance.SetEnemyVolume(volume);
     }
 }

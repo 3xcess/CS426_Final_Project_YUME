@@ -17,7 +17,7 @@
 * [Task List](https://docs.google.com/spreadsheets/d/1taPDdcrC46CoKB_lu0br7GeofeiH4uXGav2GyW59KS0/edit?usp=sharing)
 * [Bug Tacker](https://github.com/3xcess/CS426_Final_Project_YUME/issues)
 * [Asset Source](https://github.com/3xcess/CS426_Final_Project_YUME/issues) *Disclaimer: All assets from the Unity Asset Store unless explicitly stated otherwise*
-* Demo links: [A5 - Prototype](https://drive.google.com/file/d/1G2fVeOl_RhjjZwZXZWWt6ypcQ0Tr1-ds/view?usp=sharing) || [A6 - Mechanim](https://piazza.com/class/m3z7e8cjd2x2p5/post/112)
+* Demo links: [A5 - Prototype](https://drive.google.com/file/d/1G2fVeOl_RhjjZwZXZWWt6ypcQ0Tr1-ds/view?usp=sharing) || [A6 - Mechanim](https://drive.google.com/file/d/1UvRbP1LN4cGhyywO9277SMsX0y2rRVLi/view?usp=drive_link)
 
 ## A6 Update
 
@@ -40,6 +40,26 @@
 - [x] Added an early placeholder for a cutscene
 - [ ] Improve Story Clues
 - [ ] Select Player Character
+
+### Specifics
+***
+#### Sujot:
+* Custom Implementation of a Bayesian network for decision making of the Hidden enemies in Challenge 1(Green enemies which are slower than normal)
+* Breakable Glass Physics Construct in Challenge 1
+* Mecanim implemented for the Enemies in Challenge 1
+* Lighting and textures implemented in DW_LowerLevel scene
+
+#### Angel:
+* Hostile NPC AI using Finite State Machines in Challenge 2
+* Mecanim implpemented in Challenge 2 as the NPC enemy character
+* Throwable object Physics Construct in Challenge 2
+* Lighting and textures implemented in Nightmare scene
+
+#### Harsh:
+* Custom Implementation of a Bayesian network for decision making of the Hidden enemies in Challenge 3 (Green enemies which are slower than normal)
+* Mecanim implpemented in Challenge 3 as the monster defending the exit
+* Physics construct in the form of particle system that gets activated when the AI correctly predicts your move
+* Lighting, textures, and skyboxes implemented in Challenge 3 and the Dreams scene
 
 ### Towards the game vision
 

@@ -12,8 +12,9 @@ public class SceneTrigger : MonoBehaviour
         Debug.LogError("GameManager is not set in the scene!");
         return;
     }
-
-    GameManager.Instance.enterChallenge();
+    if(SceneManager.GetActiveScene().name == "Nightmare"){
+        GameManager.Instance.enterChallenge();
+    }
     SceneManager.LoadScene(sceneToLoad);
 }
 }
