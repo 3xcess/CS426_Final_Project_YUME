@@ -11,11 +11,6 @@ public class PlayerMovementPheo : MonoBehaviour
     public float mouseSensitivity = 2f;
     public float gravity = -9.81f;
 
-    [Header("Combat Settings")]
-    public float attackRange = 2f;
-    public float attackDamage = 5f;
-
-
     private CharacterController controller;
     private Animator anim;
     private bool isGrounded = true;
@@ -91,36 +86,8 @@ public class PlayerMovementPheo : MonoBehaviour
         if (isAttackPressed)
         {
             anim.SetTrigger(AttackHash);
-            TryDamageEnemy();
+
         }
-    }
-
-    void TryDamageEnemy()
-    {
-        Collider[] hits = Physics.OverlapSphere(transform.position + transform.forward, attackRange);
-
-        foreach (Collider hit in hits)
-        {
-            EnemyAI enemy = hit.GetComponent<EnemyAI>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(attackDamage);
-            }
-        }
-
-        Debug.Log("Trying to damage enemy...");
-
-        foreach (Collider hit in hits)
-        {
-            Debug.Log("Hit: " + hit.name);
-            EnemyAI enemy = hit.GetComponent<EnemyAI>();
-            if (enemy != null)
-            {
-                Debug.Log("Enemy hit: " + hit.name);
-                enemy.TakeDamage(attackDamage);
-            }
-        }
-
     }
 
     void HandleJump()

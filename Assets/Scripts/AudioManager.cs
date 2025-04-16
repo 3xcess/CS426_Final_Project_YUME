@@ -1,12 +1,15 @@
 using System.Collections;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
+
+    [Header("Audio Sources")]
     public AudioSource enemyAudioSource;
     public AudioSource sfxSource;
+
     private Coroutine volumeFadeCoroutine;
 
     void Awake()
@@ -17,26 +20,36 @@ public class AudioManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else
+        {
             Destroy(gameObject);
+        }
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Challenge 2")
+        {
+            SetEnemyVolume(0.1f);
+        }
     }
 
     public void SetEnemyVolume(float targetVolume, float fadeSpeed = 2f)
     {
         if (enemyAudioSource == null) return;
 
-        if (SceneManager.GetActiveScene().name == "Challenge 2")
-        {
-            if (!enemyAudioSource.isPlaying)
-            {
-                enemyAudioSource.Play();
-            }
-        }
-        else
-        {
-            return; // Exit early if not in Challenge 2
-        }
+        if (!enemyAudioSource.isPlaying)
+            enemyAudioSource.Play();
 
-        // Fade volume
         if (volumeFadeCoroutine != null)
             StopCoroutine(volumeFadeCoroutine);
 

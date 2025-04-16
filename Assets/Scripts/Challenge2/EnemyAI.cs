@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class EnemyAI : MonoBehaviour
     public float attackCooldown = 1.5f;
 
     private int currentPatrolIndex;
-    private float health = 100f;
+    private EnemyHealthManager healthManager;
     private bool isWaitingAtPoint = false;
     private bool isAttacking = false;
     private bool isDeadHandled = false;
@@ -26,6 +27,9 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         currentState = EnemyState.Patrol;
+
+        healthManager = GetComponent<EnemyHealthManager>();
+        healthManager.onDeath += HandleDeath;
     }
 
     void Update()
@@ -135,17 +139,18 @@ public class EnemyAI : MonoBehaviour
         StopAllCoroutines();
         // anim.SetTrigger("Die"); // Optional
         Destroy(gameObject, 2f);
+
     }
 
     void CheckTransitions()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (health <= 0)
+        if (healthManager.IsDead())
         {
             currentState = EnemyState.Dead;
         }
-        else if (health < fleeHealthThreshold)
+        else if (healthManager.currentHealth < fleeHealthThreshold)
         {
             currentState = EnemyState.Flee;
         }
@@ -165,23 +170,27 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        healthManager.TakeDamage(damage);
+    }
 
-        if (health <= 0)
-        {
-            currentState = EnemyState.Dead;
-        }
+    void HandleDeath()
+    {
+        currentState = EnemyState.Dead;
+        GameManager.Instance.exitChallenge();
+        SceneManager.LoadScene(1);
     }
 
     void SetAudioVolume()
     {
         float volume = currentState switch
         {
-            EnemyState.Idle => 0.1f,
-            EnemyState.Patrol => 0.2f,
-            EnemyState.Chase => 0.5f,
-            EnemyState.Attack => 1.0f,
-            _ => 0f
+          EnemyState.Idle => 0.1f,
+          EnemyState.Patrol => 0.2f,
+          EnemyState.Chase => 0.5f,
+          EnemyState.Attack => 1.0f,
+          EnemyState.Flee => 1.0f,
+          EnemyState.Dead => 0f,
+          _ => 0.1f
         };
 
         AudioManager.Instance.SetEnemyVolume(volume);
