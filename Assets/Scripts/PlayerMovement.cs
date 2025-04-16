@@ -1,82 +1,93 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement Settings")]
     public float speed = 5f;
     public float jumpForce = 5f;
-    public float mouseSensitivity = 2f; // Controls mouse look sensitivity
+    public float gravity = -9.81f;
+
+    [Header("Camera Settings")]
+    public float mouseSensitivity = 2f;
+
+    [Header("Scene Settings")]
     public string nextSceneName = "Nightmare";
 
-    private Rigidbody rb;
-    private bool isGrounded = true; 
+    private CharacterController controller;
+    private Animator anim;
+    private Vector3 velocity;
+    private float rotationY = 0f;
 
-    private float rotationY = 0f; // Store player rotation
+    private static readonly int SpeedHash = Animator.StringToHash("Speed");
+    private static readonly int JumpHash = Animator.StringToHash("Jump");
+    private static readonly int AttackHash = Animator.StringToHash("Attack");
+    private static readonly int BackwardHash = Animator.StringToHash("Backward");
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); 
-        Cursor.lockState = CursorLockMode.Locked; // Lock cursor to center of screen
+        controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
-        RotatePlayer(); // Handle mouse rotation
-        HandleJump(); 
+        RotatePlayer();
+        HandleMovement();
 
-        if (Input.GetKeyDown(KeyCode.R) && SceneManager.GetActiveScene().name == "Dreams") 
+        if (Input.GetKeyDown(KeyCode.R) && SceneManager.GetActiveScene().name == "Dreams")
         {
-            SwitchScene();
+            SceneManager.LoadScene(nextSceneName);
         }
     }
 
-    void FixedUpdate() 
+    void HandleMovement()
     {
-        MovePlayer();
-    }
+        bool isGrounded = controller.isGrounded;
 
-    void MovePlayer()
-    {
-        float moveX = Input.GetAxisRaw("Horizontal"); 
-        float moveZ = Input.GetAxisRaw("Vertical");   
-  
-
-        Vector3 movement = transform.forward * moveZ + transform.right * moveX;
-        movement.Normalize();
-        movement *= speed;
-
-        if (isGrounded || rb.linearVelocity.y != 0) 
+        if (isGrounded && velocity.y < 0)
         {
-            rb.linearVelocity = new Vector3(movement.x, rb.linearVelocity.y, movement.z);
+            velocity.y = -2f;
+        }
+
+        // Cache input
+        float inputX = Input.GetAxis("Horizontal");
+        float inputZ = Input.GetAxis("Vertical");
+        bool isJumpPressed = Input.GetButtonDown("Jump");
+        bool isAttackPressed = Input.GetButtonDown("Fire1");
+
+        // Horizontal movement
+        Vector3 move = transform.right * inputX + transform.forward * inputZ;
+        controller.Move(move * speed * Time.deltaTime);
+
+        // Apply jump if grounded
+        if (isJumpPressed && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+            anim.SetTrigger(JumpHash);
+        }
+
+        // Apply gravity and move vertically
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
+
+        // Animation
+        float moveSpeed = new Vector2(inputX, inputZ).magnitude;
+        anim.SetFloat(SpeedHash, moveSpeed);
+        anim.SetBool(BackwardHash, inputZ < 0);
+
+        if (isAttackPressed)
+        {
+            anim.SetTrigger(AttackHash);
         }
     }
 
     void RotatePlayer()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity; // Get mouse horizontal movement
-        rotationY += mouseX; // Accumulate rotation
-        transform.rotation = Quaternion.Euler(0, rotationY, 0); // Apply rotation to player
-    }
-
-    void HandleJump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) 
-        {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
-            isGrounded = false; 
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground")) 
-        {
-            isGrounded = true;
-        }
-    }
-
-    void SwitchScene()
-    {
-        SceneManager.LoadScene(nextSceneName);
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        rotationY += mouseX;
+        transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
     }
 }
