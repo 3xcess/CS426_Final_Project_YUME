@@ -19,6 +19,11 @@
 * [Asset Source](https://github.com/3xcess/CS426_Final_Project_YUME/issues) *Disclaimer: All assets from the Unity Asset Store unless explicitly stated otherwise*
 * Demo links: [A5 - Prototype](https://drive.google.com/file/d/1G2fVeOl_RhjjZwZXZWWt6ypcQ0Tr1-ds/view?usp=sharing) || [A6 - Mechanim](https://drive.google.com/file/d/1UvRbP1LN4cGhyywO9277SMsX0y2rRVLi/view?usp=drive_link)
 
+## Dev Notes from the Team:
+* As of A7 update, the output folder had large files that couldn't be uploaded to github. As a result, to run the game please extract the zipped files in the YUME_Data folder before launching the game. Thank you!
+
+***
+
 ## A6 Update
 
 ### Minimum Requirements
@@ -88,3 +93,62 @@ we intend to make the scene interplay even better by making the transitions feel
 #### General Refinement
 ***
 Smoothed out the gameplay loop, improved the HUD, and removed any noticed bugs.
+
+***
+
+## A7 Update
+
+### Minimum Requirements
+- [x] Updated the Game UI
+- [x] Added Sounds to the Game
+- [x] Finished the Challenge Scenarios
+- [x] Updated the worlds of the different scenes and added player models + mecanims
+- [x] Updated and extended the gameplay loop
+- [x] Fixed bugs
+
+### Sujot's notes
+* Finalized Challenge 1
+* Updated the Story Clue UI (Pickup/Interact Prompt and Story Clue prefab model)
+* Updated UI: Challenge 1 (World layout/textures/time pickups), DW_LowerLevel (Health Resource/Portal back to Dreams scene)
+* Added Sounds: Challenge 1 (Background Theme, Ambient & Trigger based effects, Time Pick Up), DW_LowerLevel (Background)
+* Updated World Lyout and Textures: Challenge 1, Dreams
+* Fixed Bugs
+
+### Angels's notes
+* Finalized Challenge 2
+* Added Player mecanim + models for every scene
+* Updated/Fixed the player movement
+* Updated the Story Clue UI (Pickup/Interact Prompt and Story Clue prefab model)
+* Updated UI: Challenge 2 (World textures, Enemy Health Bar), DW_LowerLevel (Health Resource/Portal back to Dreams scene)
+* Added Sounds: Story Clues (Pick Up), Challenge 2 (Background)
+* Fixed Bugs
+
+### Harsh's notes
+* Finalized Challenge 3
+* Added new UI:  Cutscenes for Challenges + Intro
+* Updated UI: Challenge 3 (World layout/textures/Wrong move)
+* Updated UI: Fixed bugged UI from A6
+* Added Sounds: Challenge 3 (Background Theme, Wrong Move), Dreams (Background), Intro Screen (Background)
+* Fixed Bugs
+
+### UI Changes
+* Cutscenes + Intro Added for most scenes
+* Interactions UI updated
+* Level design + Textures Added to every scene
+* Updated Player models
+* TODO: Fix Bugged/Missing UI, Make UI more consistent across scenes
+* Alpha Testing Feedback: Add more information in the UI elements for the player
+
+### Sound Changes
+* Added background theme for most scenes
+* Added Interaction sounds wherever applicable
+* Added Ambient Sounds in some places
+* TODO: Flesh out the soundscape more, make sounds more coherent, add sounds to Nightmare
+* Alpha Testing Feedback: Sounds selection is generally good, Some sounds are missing, some are jarring, need to bring headphones for Beta Test.
+
+### General Refinement
+* Fixed Bugs
+* Smoothed out the Gameplay loop to better flow as intended
+* Refined the aesthetics more
+
+***
