@@ -47,7 +47,7 @@
 - [ ] Select Player Character
 
 ### Specifics
-***
+
 #### Sujot:
 * Custom Implementation of a Bayesian network for decision making of the Hidden enemies in Challenge 1(Green enemies which are slower than normal)
 * Breakable Glass Physics Construct in Challenge 1
@@ -69,7 +69,6 @@
 ### Towards the game vision
 
 #### Aesthetics
-***
 Finding the assets for the Dream world is proving to be a challenge now, but we do believe we have some good resources on our hand. While this means our Dream world, the one we start in, is severely un-textured compared to the other scenes, we should be able to make quick progress prior to the alpha release on this aspect.  
 The nightmare world has slowly but surely progressed towards the aesthetic requirements we have of it, and an initial but satisfactory version is playable in this release.  
 Challenge 3 is the only challenge scenario we have been able to progress on so far aesthetically, but that is because our efforts were directed towards texturing other scenes. Regardless, we have a good plan going ahead for the scenes that still demand texturing.
@@ -79,19 +78,16 @@ We still need to get better assets for our scene triggers and  Story Clues, whic
 The Biggest task left unaccomplished during A6 has been us not being able to decide on our player models. 
 
 #### Mecanim and AI
-***
 All 3 of us had the freedom to implement any form of adversarial AI in our challenge scenarios due to the very nature of YUME's design. 
 Sujot and Harsh implemented two very different, custom implementations of Bayesian Networks (*as per the grad requirement*), while Angel leaned towards an FSM implementation during this development cycle.
 This leads to the Challenge scenarios truly being unique, providing quite a variety of gameplay. The mechanims and physics constructs used in these scenes served to aid the AI in acheiving the intended vision we had for our challenges.
 During our self-testing during this development cycle, we believe this has lead to an interesting experience that kept the player on their toes.
 
 #### Scene Interactions
-***
 One major goal accomplished during A6 has been smoothing out the transitions between scenes and worlds, something at the very core of YUME.
 we intend to make the scene interplay even better by making the transitions feel smooth or abrupt, as per the vision we have for the final game, by introducing visual similarities/differences to the various scenes which interact within the gameplay.
 
 #### General Refinement
-***
 Smoothed out the gameplay loop, improved the HUD, and removed any noticed bugs.
 
 ***
@@ -106,7 +102,9 @@ Smoothed out the gameplay loop, improved the HUD, and removed any noticed bugs.
 - [x] Updated and extended the gameplay loop
 - [x] Fixed bugs
 
-### Sujot's notes
+### Specifics
+
+#### Sujot's notes
 * Finalized Challenge 1
 * Updated the Story Clue UI (Pickup/Interact Prompt and Story Clue prefab model)
 * Updated UI: Challenge 1 (World layout/textures/time pickups), DW_LowerLevel (Health Resource/Portal back to Dreams scene)
@@ -114,7 +112,7 @@ Smoothed out the gameplay loop, improved the HUD, and removed any noticed bugs.
 * Updated World Lyout and Textures: Challenge 1, Dreams
 * Fixed Bugs
 
-### Angels's notes
+#### Angels's notes
 * Finalized Challenge 2
 * Added Player mecanim + models for every scene
 * Updated/Fixed the player movement
@@ -123,7 +121,7 @@ Smoothed out the gameplay loop, improved the HUD, and removed any noticed bugs.
 * Added Sounds: Story Clues (Pick Up), Challenge 2 (Background)
 * Fixed Bugs
 
-### Harsh's notes
+#### Harsh's notes
 * Finalized Challenge 3
 * Added new UI:  Cutscenes for Challenges + Intro
 * Updated UI: Challenge 3 (World layout/textures/Wrong move)
@@ -131,7 +129,7 @@ Smoothed out the gameplay loop, improved the HUD, and removed any noticed bugs.
 * Added Sounds: Challenge 3 (Background Theme, Wrong Move), Dreams (Background), Intro Screen (Background)
 * Fixed Bugs
 
-### UI Changes
+#### UI Changes
 * Cutscenes + Intro Added for most scenes
 * Interactions UI updated
 * Level design + Textures Added to every scene
@@ -139,14 +137,14 @@ Smoothed out the gameplay loop, improved the HUD, and removed any noticed bugs.
 * TODO: Fix Bugged/Missing UI, Make UI more consistent across scenes
 * Alpha Testing Feedback: Add more information in the UI elements for the player
 
-### Sound Changes
+#### Sound Changes
 * Added background theme for most scenes
 * Added Interaction sounds wherever applicable
 * Added Ambient Sounds in some places
 * TODO: Flesh out the soundscape more, make sounds more coherent, add sounds to Nightmare
 * Alpha Testing Feedback: Sounds selection is generally good, Some sounds are missing, some are jarring, need to bring headphones for Beta Test.
 
-### General Refinement
+#### General Refinement
 * Fixed Bugs
 * Smoothed out the Gameplay loop to better flow as intended
 * Refined the aesthetics more
