@@ -79,13 +79,6 @@ public class GameManager : MonoBehaviour{
     {
         gameOverPanel.SetActive(true);
         Time.timeScale = 0f;
-
-        // Trigger the credits
-        CreditScript creditScript = FindObjectOfType<CreditScript>();
-        if (creditScript != null)
-        {
-            creditScript.StartCredits();
-        }
     }
 
     public void AddToTimer(){

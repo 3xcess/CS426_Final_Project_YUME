@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreditScript : MonoBehaviour
 {
@@ -6,20 +7,25 @@ public class CreditScript : MonoBehaviour
     public float scrollSpeed = 50f;
     public float endY = 1000f;
 
-    public CanvasGroup fadeInGroup;
-    public float fadeSpeed = 1f;
+    [Header("UI References")]
+    public GameObject creditsPanel;
 
     private bool isScrolling = false;
-    private bool startFade = false;
 
     void Start()
     {
         creditsTransform = GetComponent<RectTransform>();
-        fadeInGroup.alpha = 0f; // Ensure it's hidden on start
     }
 
     void Update()
     {
+        // ✅ Move key check here
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            creditsPanel.SetActive(true);
+            StartCredits();
+        }
+
         if (isScrolling)
         {
             creditsTransform.anchoredPosition += new Vector2(0, scrollSpeed * Time.unscaledDeltaTime);
@@ -31,23 +37,10 @@ public class CreditScript : MonoBehaviour
                     endY
                 );
                 isScrolling = false;
-                startFade = true;
-            }
-        }
-
-        if (startFade)
-        {
-            fadeInGroup.alpha = Mathf.MoveTowards(fadeInGroup.alpha, 1f, fadeSpeed * Time.unscaledDeltaTime);
-
-            // Optional: Once fade is complete, move to another scene
-            if (fadeInGroup.alpha >= 1f)
-            {
-                // SceneManager.LoadScene("MainMenu");
             }
         }
     }
 
-    // Call this to trigger the credits
     public void StartCredits()
     {
         isScrolling = true;
