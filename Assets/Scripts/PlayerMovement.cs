@@ -39,10 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && SceneManager.GetActiveScene().name == "Dreams")
         {
-            PlayerScenePositionManager currentPlayer = FindObjectOfType<PlayerScenePositionManager>();
-            if (currentPlayer != null){
-                currentPlayer.SavePosition();
-            }
+            FindObjectOfType<PlayerScenePositionManager>().SavePosition();
             SceneManager.LoadScene(nextSceneName);
         }
     }

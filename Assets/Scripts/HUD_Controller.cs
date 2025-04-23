@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour{
     public GameObject hudCanvasRoot;
 
     private static HashSet<string> disabledIDs = new HashSet<string>();
+    private Dictionary<string, Vector3> playerPositions = new();
 
     private void Awake(){
         if (Instance == null){
@@ -198,6 +199,17 @@ public class GameManager : MonoBehaviour{
             if (keysPanel != null) keysPanel.SetActive(false);
             if (gameOverPanel != null) gameOverPanel.SetActive(false);
         }
+    }
+
+    public void SavePlayerPosition(string playerID, Vector3 position)
+    {
+        playerPositions[$"{SceneManager.GetActiveScene().name}_{playerID}"] = position;
+    }
+
+    public bool TryGetSavedPosition(string playerID, out Vector3 position)
+    {
+        string key = $"{SceneManager.GetActiveScene().name}_{playerID}";
+        return playerPositions.TryGetValue(key, out position);
     }
 
 }

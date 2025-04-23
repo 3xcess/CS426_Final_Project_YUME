@@ -1,34 +1,18 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
 public class PlayerScenePositionManager : MonoBehaviour
 {
-    [SerializeField] private string playerID = "PlayerA";
-
-    private static Dictionary<string, Vector3> sessionPositions = new();
-
-    private string GetKey()
-    {
-        return $"{SceneManager.GetActiveScene().name}_{playerID}";
-    }
-
-    void Start()
-    {
-        string key = GetKey();
-        if (sessionPositions.ContainsKey(key))
+    public string playerID;
+    
+    void Start(){
+        if (GameManager.Instance.TryGetSavedPosition(playerID, out Vector3 savedPos))
         {
-            transform.position = sessionPositions[key];
+            transform.position = savedPos;
         }
     }
 
-    public void SavePosition()
-    {
-        sessionPositions[GetKey()] = transform.position;
-    }
-
-    public void ClearSavedPosition()
-    {
-        sessionPositions.Remove(GetKey());
+    public void SavePosition(){
+        GameManager.Instance.SavePlayerPosition(playerID, transform.position);
     }
 }
