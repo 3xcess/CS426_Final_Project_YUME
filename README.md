@@ -150,3 +150,43 @@ Smoothed out the gameplay loop, improved the HUD, and removed any noticed bugs.
 * Refined the aesthetics more
 
 ***
+
+## A8 Update
+
+#### Feedback from Alpha we worked on:
+* Instructions/controls explained
+* Varying spawn points 
+* Fix died for character challenge 2 
+* Portals need to be indicated or highlighted NW
+* Indication of what needs to be collected 
+* Scale makes player prefab seem faster(DW) over slower (NW)
+* General bugs
+* Glow or more attention to clues and chests
+* Add dialog/text to how our game works
+
+#### Assignment 8 Specific Tasks:
+* UI Changes - Game End/Game Over
+* Sound Changes  - Nightmare Background
+* Add Shaders
+* Update Intro Screen
+* Add End Credits
+* Fix Clipping bugs - DW
+* Fix Clipping bugs - Lower Level
+* Fix Clipping bugs - Nightmare
+* Fix World Switch Bug
+* Fix Time Over Limit Bug
+* Add Info - Challenges
+* Add Info - Player Guide
+* Refine Challenge 1
+* Refine Challenge 2
+* Refine Challenge 3
+* Update Design Doc
+
+#### TODO List Remaining:
+* Story
+* jump doesn't work yet as intended
+* Add more info 
+* Add more text
+
+#### Additional Features We are aiming for:
+* Increasing the map size/adding more Clue content.
