@@ -20,7 +20,8 @@
 * Demo links: [A5 - Prototype](https://drive.google.com/file/d/1G2fVeOl_RhjjZwZXZWWt6ypcQ0Tr1-ds/view?usp=sharing) || [A6 - Mechanim](https://drive.google.com/file/d/1UvRbP1LN4cGhyywO9277SMsX0y2rRVLi/view?usp=drive_link)
 
 ## Dev Notes from the Team:
-* As of A7 update, the output folder had large files that couldn't be uploaded to github. As a result, to run the game please extract the zipped files in the YUME_Data folder before launching the game. Thank you!
+* #### As of A7 update, the output folder had large files that couldn't be uploaded to github. As a result, to run the game please extract the zipped files in the YUME_Data folder before launching the game. Thank you!
+* ##### For some reason, in the A8 build there may be a persisting PlayerPerfs file that is downloaded with the main branch. This will make it so that the player persistence seems broken in the Dream World. To Fix this, try moving the output folder outside the root directory of where the git project is located on your system. If this doesn't work, you will unfortunately need to build the output again OUTSIDE the root directory of this project's downloaded git repo.
 
 ***
 
