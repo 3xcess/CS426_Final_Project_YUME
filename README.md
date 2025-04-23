@@ -18,7 +18,7 @@
 * [Bug Tacker](https://github.com/3xcess/CS426_Final_Project_YUME/issues)
 * [Asset Source](https://github.com/3xcess/CS426_Final_Project_YUME/issues) *Disclaimer: All assets from the Unity Asset Store unless explicitly stated otherwise*
 * Demo links: [A5 - Prototype](https://drive.google.com/file/d/1G2fVeOl_RhjjZwZXZWWt6ypcQ0Tr1-ds/view?usp=sharing) || [A6 - Mechanim](https://drive.google.com/file/d/1UvRbP1LN4cGhyywO9277SMsX0y2rRVLi/view?usp=drive_link)
-* [How to Play](https://docs.google.com/document/d/1oUz_rGOp-j2mK4EMN8bPvPtkQ5c6IyHkfQukfWm5tEM/edit?tab=t.0#bookmark=id.c99332jfzbdw)
+* [HOW TO PLAY](https://docs.google.com/document/d/1oUz_rGOp-j2mK4EMN8bPvPtkQ5c6IyHkfQukfWm5tEM/edit?tab=t.0#bookmark=id.c99332jfzbdw)
 
 ## Dev Notes from the Team:
 * #### As of A7 update, the output folder had large files that couldn't be uploaded to github. As a result, to run the game please extract the zipped files in the YUME_Data folder before launching the game. Thank you!
