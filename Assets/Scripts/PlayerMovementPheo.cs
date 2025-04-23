@@ -46,7 +46,7 @@ public class PlayerMovementPheo : MonoBehaviour
         HandleMovement();
         HandleJump();
 
-        if (Input.GetKeyDown(KeyCode.R) && InvertScenes.Contains(SceneManager.GetActiveScene().name))
+        if (Input.GetKeyDown(KeyCode.R) && SceneManager.GetActiveScene().name== "Nightmare")
         {
             SwitchScene();
         }

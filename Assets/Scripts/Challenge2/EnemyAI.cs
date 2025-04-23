@@ -178,6 +178,7 @@ public class EnemyAI : MonoBehaviour
         currentState = EnemyState.Dead;
         GameManager.Instance.exitChallenge();
         GameManager.Instance.getKey();
+        GameManager.Instance.AddToTimerC2();
         SceneManager.LoadScene("Nightmare");
     }
 

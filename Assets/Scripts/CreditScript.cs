@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CreditScript : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class CreditScript : MonoBehaviour
     public GameObject creditsPanel;
 
     private bool isScrolling = false;
+    private bool isEndScene = false;
 
     void Start()
     {
@@ -26,7 +28,11 @@ public class CreditScript : MonoBehaviour
             StartCredits();
         }
 
-        if (isScrolling)
+        if(SceneManager.GetActiveScene().name == "EndScene"){
+            isEndScene = true;
+        }
+
+        if (isScrolling || isEndScene)
         {
             creditsTransform.anchoredPosition += new Vector2(0, scrollSpeed * Time.unscaledDeltaTime);
 

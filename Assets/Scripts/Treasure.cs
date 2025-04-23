@@ -16,6 +16,7 @@ public class Treasure : MonoBehaviour {
                 winManager.ShowWinMessage();
             }
             GameManager.Instance.exitChallenge();
+            GameManager.Instance.AddToTimerC3();
             SceneManager.LoadScene("Nightmare"); 
         }
     }
