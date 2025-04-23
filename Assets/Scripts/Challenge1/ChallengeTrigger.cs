@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 public class ChallengeTrigger : MonoBehaviour {
-    private int target = 5;
+    private int target = 2;
 
     public AudioSource audioSource;
     public AudioSource audioSource2;
@@ -18,7 +18,14 @@ public class ChallengeTrigger : MonoBehaviour {
                 gameObject.SetActive(false);
             } else {
                 audioSource2.Play();
+                GameManager.Instance.resetCollection();
                 GameManager.Instance.exitChallenge();
+
+                PlayerScenePositionManager currentPlayer = FindObjectOfType<PlayerScenePositionManager>();
+                if (currentPlayer != null){
+                    currentPlayer.SavePosition();
+                }
+
                 SceneManager.LoadScene(1);
             }
         }
