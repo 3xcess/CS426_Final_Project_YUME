@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour{
     public bool hasGameStarted = false; // ← make it public
     public bool hasIntroPlayed = false;
 
+    public GameObject hudCanvasRoot;
+
     private static HashSet<string> disabledIDs = new HashSet<string>();
 
     private void Awake(){
@@ -41,6 +43,10 @@ public class GameManager : MonoBehaviour{
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode){
         isInDream = (scene.name == "Dreams" || scene.name == "DW_LowerLevel") ;
+        if (scene.name == "EndScene")
+        {  
+            DisableHUD();
+        }
     }
 
     private void Update(){
@@ -174,6 +180,23 @@ public class GameManager : MonoBehaviour{
         timer += 10f;
         if(timer > 60f){
             timer = 60f;
+        }
+    }
+
+    public void DisableHUD()
+    {
+        if (hudCanvasRoot != null)
+        {
+            hudCanvasRoot.SetActive(false);
+            Debug.Log("✅ HUD canvas root disabled in EndScene.");
+        }
+        else
+        {
+            // Fallback: disable individual parts
+            if (timerText != null) timerText.gameObject.SetActive(false);
+            if (healthText != null) healthText.gameObject.SetActive(false);
+            if (keysPanel != null) keysPanel.SetActive(false);
+            if (gameOverPanel != null) gameOverPanel.SetActive(false);
         }
     }
 
