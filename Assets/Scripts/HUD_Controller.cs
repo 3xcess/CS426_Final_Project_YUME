@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour{
     public Image timerText;
     public Image healthText;
     public GameObject gameOverPanel;
+    public TMP_Text keysCollected;
+    public GameObject keysPanel;
 
     private float timer = 60f;
     private float health = 100f;
@@ -15,8 +17,10 @@ public class GameManager : MonoBehaviour{
     private bool isInChallenge = false;
     private float healthDecreaseTimer = 1f;
     private int challengeCollection = 0;
+    private int keys = 0;
     public bool hasGameStarted = false; // ← make it public
     public bool hasIntroPlayed = false;
+    public GameObject hudCanvasRoot;
 
     private void Awake(){
         if (Instance == null){
@@ -35,6 +39,10 @@ public class GameManager : MonoBehaviour{
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode){
         isInDream = (scene.name == "Dreams" || scene.name == "DW_LowerLevel") ;
+        if (scene.name == "EndScene")
+        {  
+            DisableHUD();
+        }
     }
 
     private void Update(){
@@ -65,6 +73,11 @@ public class GameManager : MonoBehaviour{
     private void UpdateUI(){
         timerText.fillAmount = timer / 60f;
         healthText.fillAmount = health / 100f;
+        if(keys > 0){
+            keysCollected.SetText(keys.ToString());
+        } else {
+            keysPanel.SetActive(false);
+        }
     }
 
     private void GameOver(){
@@ -73,7 +86,7 @@ public class GameManager : MonoBehaviour{
     }
 
     public void AddToTimer(){
-        timer += 5f;
+        timer += 10f;
     }
 
     public void AddToHealth(){
@@ -102,5 +115,34 @@ public class GameManager : MonoBehaviour{
 
     public void incrementCollected(){
         challengeCollection += 1;
+    }
+
+    public void getKey(){
+        keysPanel.SetActive(true);
+        keys += 1;
+    }
+
+    public void useKey(){
+        keys -= 1;
+        if(keys < 0){
+            keysPanel.SetActive(false);
+            keys = 0;
+        }
+    }
+    public void DisableHUD()
+    {
+    if (hudCanvasRoot != null)
+    {
+        hudCanvasRoot.SetActive(false);
+        Debug.Log("✅ HUD canvas root disabled in EndScene.");
+    }
+    else
+    {
+        // Fallback: disable individual parts
+        if (timerText != null) timerText.gameObject.SetActive(false);
+        if (healthText != null) healthText.gameObject.SetActive(false);
+        if (keysPanel != null) keysPanel.SetActive(false);
+        if (gameOverPanel != null) gameOverPanel.SetActive(false);
+    }
     }
 }

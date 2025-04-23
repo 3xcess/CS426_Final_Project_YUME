@@ -15,12 +15,13 @@ public class GameManager1 : MonoBehaviour {
     private HashSet<Vector3> validPositions = new HashSet<Vector3>();
 
     private string[] directions = { "Forward", "Backward", "Left", "Right" };
-    private Vector3 RoundToGrid(Vector3 pos) {
-    float gridSize = moveDistance; // usually 3f
+private Vector3 RoundToGrid(Vector3 pos)
+{
+    float gridSize = moveDistance; // 3f
     return new Vector3(
-        Mathf.Round(pos.x / gridSize) * gridSize,
-        0f, 
-        Mathf.Round(pos.z / gridSize) * gridSize
+        Mathf.Round((pos.x + gridSize / 2f) / gridSize) * gridSize - gridSize / 2f,
+        0f,
+        Mathf.Round(pos.z / gridSize) * gridSize 
     );
 }
 
@@ -78,6 +79,7 @@ void Start() {
     // Trap prediction logic...
     if (lastTwoMoves.Count == 2) {
         if (IsMovePredicted(direction)) {
+            GameManager.Instance.DamageHealth(5f);
             if (explosionPrefab != null)
                 Instantiate(explosionPrefab, player.position, Quaternion.identity);
 
@@ -87,7 +89,8 @@ void Start() {
             if (audioSource != null)
             {
                 if (failSound != null)
-                    audioSource.PlayOneShot(failSound);
+                {
+                    audioSource.PlayOneShot(failSound, 0.1f);}
                 else
                     audioSource.Play(); // fallback if default assigned
             }            

@@ -31,6 +31,17 @@ public class IntroUIChallenge2 : MonoBehaviour
 
             Time.timeScale = 0f; // Pause again
         }
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            introPanel.SetActive(false);
+            backgroundImage.SetActive(false);
+            hasIntroBeenDismissed = true;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            Time.timeScale = 1f; // Pause again
+        }
     }
 
     public void OnStartClicked()
