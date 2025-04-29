@@ -21,28 +21,32 @@ public class ClueManager : MonoBehaviour
     img.gameObject.SetActive(false);
   }
 
-  public void ShowClue(ClueSphere.ClueType clueType)
+  public void ShowClue(ClueSphere.ClueType clueType, string msg)
   {
     string message = "";
 
     switch (clueType)
     {
       case ClueSphere.ClueType.Dialog:
-        message = "You found a clue: Dialog";
+        message = msg;
         break;
       case ClueSphere.ClueType.Endgame:
-        message = "You found a clue: Endgame";
+        message = msg;
+        GameManager.Instance.treasureFound();
         break;
       case ClueSphere.ClueType.PheoHints:
-        message = "You found a clue: PheoHints";
+        message = msg;
         break;
       case ClueSphere.ClueType.Health:
         if(GameManager.Instance.getHealth() < 100){
-          message = "Restored HP for Pheo";
+          message = msg;
           GameManager.Instance.AddToHealth();
         } else {
           message = "Pheo already has max HP";
         }
+        break;
+      case ClueSphere.ClueType.Finale:
+        message = msg; 
         break;
     }
 

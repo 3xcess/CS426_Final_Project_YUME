@@ -1000,6 +1000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueType: 3
+  msg: 
   chimeClip: {fileID: 0}
 --- !u!65 &31227975
 BoxCollider:
@@ -5998,7 +5999,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 7.15}
   m_SizeDelta: {x: 500, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &145716592
@@ -6022,14 +6023,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9960002, b: 0.8392157, a: 0.23921569}
+  m_Color: {r: 1, g: 0.9960002, b: 0.8392157, a: 0.79607844}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 97d619cbbdcb7cc4ca9fbb2d8af5abec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2cc411e6b75580841908c87dddd7f4ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8713,6 +8714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueType: 3
+  msg: 
   chimeClip: {fileID: 0}
 --- !u!65 &222149957
 BoxCollider:
@@ -9291,6 +9293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueType: 3
+  msg: 
   chimeClip: {fileID: 0}
 --- !u!65 &238737551
 BoxCollider:
@@ -10611,6 +10614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueType: 3
+  msg: 
   chimeClip: {fileID: 0}
 --- !u!65 &280281721
 BoxCollider:
@@ -25133,6 +25137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueType: 3
+  msg: 
   chimeClip: {fileID: 0}
 --- !u!65 &653372789
 BoxCollider:
@@ -28486,6 +28491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueType: 3
+  msg: 
   chimeClip: {fileID: 0}
 --- !u!65 &739550919
 BoxCollider:
@@ -30610,6 +30616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueType: 3
+  msg: 
   chimeClip: {fileID: 0}
 --- !u!65 &809315611
 BoxCollider:
@@ -36533,6 +36540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueType: 3
+  msg: 
   chimeClip: {fileID: 0}
 --- !u!114 &981367363
 MonoBehaviour:
@@ -40575,6 +40583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueType: 3
+  msg: 
   chimeClip: {fileID: 0}
 --- !u!65 &1094763315
 BoxCollider:
@@ -44662,6 +44671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueType: 3
+  msg: 
   chimeClip: {fileID: 0}
 --- !u!65 &1210157539
 BoxCollider:
@@ -48310,6 +48320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueType: 3
+  msg: 
   chimeClip: {fileID: 0}
 --- !u!65 &1318500396
 BoxCollider:
@@ -56959,8 +56970,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1933762067}
   - {fileID: 145716591}
+  - {fileID: 1933762067}
   m_Father: {fileID: 595988474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -61606,6 +61617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueType: 3
+  msg: 
   chimeClip: {fileID: 0}
 --- !u!65 &1700486442
 BoxCollider:
@@ -63054,6 +63066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueType: 3
+  msg: 
   chimeClip: {fileID: 0}
 --- !u!65 &1742406997
 BoxCollider:
@@ -73434,6 +73447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueType: 3
+  msg: 
   chimeClip: {fileID: 0}
 --- !u!65 &2026882293
 BoxCollider:
