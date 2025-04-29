@@ -9,6 +9,10 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Sources")]
     public AudioSource enemyAudioSource;
     public AudioSource sfxSource;
+    public AudioSource bgmSource;
+
+    [Header("Audio Clips")]
+    public AudioClip nightmareBackgroundClip;
 
     private Coroutine volumeFadeCoroutine;
 
@@ -41,6 +45,15 @@ public class AudioManager : MonoBehaviour
         {
             SetEnemyVolume(0.1f);
         }
+
+        if (scene.name == "Nightmare")
+        {
+            PlayBackgroundMusic(nightmareBackgroundClip);
+        }
+        else
+        {
+            StopBackgroundMusic();
+        }
     }
 
     public void SetEnemyVolume(float targetVolume, float fadeSpeed = 2f)
@@ -72,6 +85,25 @@ public class AudioManager : MonoBehaviour
         if (clip != null && sfxSource != null)
         {
             sfxSource.PlayOneShot(clip);
+        }
+    }
+
+    public void PlayBackgroundMusic(AudioClip clip)
+    {
+        if (clip == null || bgmSource == null) return;
+
+        if (bgmSource.isPlaying && bgmSource.clip == clip) return;
+
+        bgmSource.clip = clip;
+        bgmSource.loop = true;
+        bgmSource.Play();
+    }
+
+    public void StopBackgroundMusic()
+    {
+        if (bgmSource != null && bgmSource.isPlaying)
+        {
+            bgmSource.Stop();
         }
     }
 }

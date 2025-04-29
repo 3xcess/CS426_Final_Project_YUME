@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Materials/CliffWater.mat.meta
 guid: 1702c7071149048e2ae904f04d26e77a
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
+========
+guid: cb63175292825a5439ff29898b9080a7
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+>>>>>>>> main:Assets/Materials/Hand Painted Stone Texture/Material/Stone_normal 1.mat.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 

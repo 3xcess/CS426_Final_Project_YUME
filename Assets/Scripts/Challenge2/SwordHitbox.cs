@@ -13,6 +13,12 @@ public class SwordHitbox : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
             }
+
+            EnemyHitFlash hitFlash = other.GetComponent<EnemyHitFlash>();
+            if (hitFlash != null)
+            {
+                hitFlash.FlashRed();
+            }
         }
     }
 }

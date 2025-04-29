@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour{
     public static GameManager Instance;
@@ -20,7 +21,11 @@ public class GameManager : MonoBehaviour{
     private int keys = 0;
     public bool hasGameStarted = false; // ← make it public
     public bool hasIntroPlayed = false;
+
     public GameObject hudCanvasRoot;
+
+    private static HashSet<string> disabledIDs = new HashSet<string>();
+    private Dictionary<string, Vector3> playerPositions = new();
 
     private void Awake(){
         if (Instance == null){
@@ -65,6 +70,10 @@ public class GameManager : MonoBehaviour{
                     GameOver();
                 }
             }
+        } else {
+            if (health <= 0){
+                GameOver();
+            }
         }
 
         UpdateUI();
@@ -80,17 +89,24 @@ public class GameManager : MonoBehaviour{
         }
     }
 
-    private void GameOver(){
+    private void GameOver()
+    {
         gameOverPanel.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void AddToTimer(){
-        timer += 10f;
+        timer += 12f;
+        if(timer > 60f){
+            timer = 60f;
+        }
     }
 
     public void AddToHealth(){
-        health += 10f;
+        health += 25f;
+        if(health > 100f){
+            health = 100f;
+        }
     }
 
     public void DamageHealth(float damage){
@@ -117,6 +133,10 @@ public class GameManager : MonoBehaviour{
         challengeCollection += 1;
     }
 
+    public void resetCollection(){
+        challengeCollection = 0;
+    }
+
     public void getKey(){
         keysPanel.SetActive(true);
         keys += 1;
@@ -129,20 +149,67 @@ public class GameManager : MonoBehaviour{
             keys = 0;
         }
     }
+
+    public bool checkKeys(){
+        if(keys > 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public bool checkDisabled(string id){
+        return disabledIDs.Contains(id);
+    }
+
+    public bool nowDisabled(string id){
+        return disabledIDs.Add(id);
+    }
+
+    public void clearDisabled(){
+        disabledIDs.Clear();
+    }
+
+    public void AddToTimerC2(){
+        timer += 20f;
+        if(timer > 60f){
+            timer = 60f;
+        }
+    }
+
+    public void AddToTimerC3(){
+        timer += 10f;
+        if(timer > 60f){
+            timer = 60f;
+        }
+    }
+
     public void DisableHUD()
     {
-    if (hudCanvasRoot != null)
+        if (hudCanvasRoot != null)
+        {
+            hudCanvasRoot.SetActive(false);
+            Debug.Log("✅ HUD canvas root disabled in EndScene.");
+        }
+        else
+        {
+            // Fallback: disable individual parts
+            if (timerText != null) timerText.gameObject.SetActive(false);
+            if (healthText != null) healthText.gameObject.SetActive(false);
+            if (keysPanel != null) keysPanel.SetActive(false);
+            if (gameOverPanel != null) gameOverPanel.SetActive(false);
+        }
+    }
+
+    public void SavePlayerPosition(string playerID, Vector3 position)
     {
-        hudCanvasRoot.SetActive(false);
-        Debug.Log("✅ HUD canvas root disabled in EndScene.");
+        playerPositions[$"{SceneManager.GetActiveScene().name}_{playerID}"] = position;
     }
-    else
+
+    public bool TryGetSavedPosition(string playerID, out Vector3 position)
     {
-        // Fallback: disable individual parts
-        if (timerText != null) timerText.gameObject.SetActive(false);
-        if (healthText != null) healthText.gameObject.SetActive(false);
-        if (keysPanel != null) keysPanel.SetActive(false);
-        if (gameOverPanel != null) gameOverPanel.SetActive(false);
+        string key = $"{SceneManager.GetActiveScene().name}_{playerID}";
+        return playerPositions.TryGetValue(key, out position);
     }
-    }
+
 }

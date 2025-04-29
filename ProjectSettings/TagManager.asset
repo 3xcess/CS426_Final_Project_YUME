@@ -12,6 +12,7 @@ TagManager:
   - Treasure
   - Floor
   - Pickup
+  - Triggers
   layers:
   - Default
   - TransparentFX
@@ -20,9 +21,9 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
+  - Floor
   - PostProcessing
-  - 
+  - Outline
   - 
   - 
   - 

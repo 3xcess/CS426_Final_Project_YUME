@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && SceneManager.GetActiveScene().name == "Dreams")
         {
+            FindObjectOfType<PlayerScenePositionManager>().SavePosition();
             SceneManager.LoadScene(nextSceneName);
         }
     }
