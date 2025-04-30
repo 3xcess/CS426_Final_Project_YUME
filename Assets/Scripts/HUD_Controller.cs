@@ -12,7 +12,21 @@ public class GameManager : MonoBehaviour{
     public TMP_Text keysCollected;
     public GameObject keysPanel;
 
-    private float timer = 60f;
+    [Header("Warning Overlay")]
+    public CanvasGroup redFlashOverlay;
+    public float flashSpeed = 2f;
+    public float lowHealthThreshold = 25f;
+    public float lowTimerThreshold = 10f;
+
+    private bool isFlashing = false;
+    private float flashDirection = 1f;
+
+    public GameObject treasurePanel;
+    public GameObject logoEC1;
+    public GameObject logoEC2;
+    public GameObject logoEC3;
+
+    private float timer = 45f;
     private float health = 100f;
     private bool isInDream;
     private bool isInChallenge = false;
@@ -21,6 +35,11 @@ public class GameManager : MonoBehaviour{
     private int keys = 0;
     public bool hasGameStarted = false; // ← make it public
     public bool hasIntroPlayed = false;
+
+    private int collectedTresures = 0;
+    private bool collectedEC1 = false;
+    private bool collectedEC2 = false;
+    private bool collectedEC3 = false;
 
     public GameObject hudCanvasRoot;
 
@@ -77,15 +96,66 @@ public class GameManager : MonoBehaviour{
         }
 
         UpdateUI();
+        UpdateLowHealthAndTimerFlash();
+    }
+
+    private void UpdateLowHealthAndTimerFlash()
+    {
+        bool shouldFlash = false;
+        float flashSpeedDynamic = 0f;
+
+        if (SceneManager.GetActiveScene().name == "Nightmare" && health <= lowHealthThreshold)
+        {
+            float healthFactor = 1f - (health / lowHealthThreshold);
+            flashSpeedDynamic = Mathf.Lerp(0.2f, 3f, healthFactor); // 🐢 slower range
+            shouldFlash = true;
+        }
+        else if ((SceneManager.GetActiveScene().name == "Dreams" || SceneManager.GetActiveScene().name == "DW_LowerLevel") && timer <= lowTimerThreshold)
+        {
+            float timerFactor = 1f - (timer / lowTimerThreshold);
+            flashSpeedDynamic = Mathf.Lerp(0.2f, 3f, timerFactor); // 🐢 slower range
+            shouldFlash = true;
+        }
+
+        if (!shouldFlash)
+        {
+            isFlashing = false;
+            redFlashOverlay.alpha = 0f;
+            return;
+        }
+
+        isFlashing = true;
+
+        redFlashOverlay.alpha += flashSpeedDynamic * flashDirection * Time.deltaTime;
+
+        if (redFlashOverlay.alpha >= 0.5f)
+        {
+            redFlashOverlay.alpha = 0.5f;
+            flashDirection = -1f;
+        }
+        else if (redFlashOverlay.alpha <= 0f)
+        {
+            redFlashOverlay.alpha = 0f;
+            flashDirection = 1f;
+        }
     }
 
     private void UpdateUI(){
-        timerText.fillAmount = timer / 60f;
+        timerText.fillAmount = timer / 45f;
         healthText.fillAmount = health / 100f;
         if(keys > 0){
             keysCollected.SetText(keys.ToString());
         } else {
             keysPanel.SetActive(false);
+        }
+
+        if(collectedEC1 || collectedEC2 || collectedEC3){
+            treasurePanel.SetActive(true);
+        } else {
+            treasurePanel.SetActive(false);
+            logoEC1.SetActive(false);
+            logoEC2.SetActive(false);
+            logoEC3.SetActive(false);
         }
     }
 
@@ -97,8 +167,8 @@ public class GameManager : MonoBehaviour{
 
     public void AddToTimer(){
         timer += 12f;
-        if(timer > 60f){
-            timer = 60f;
+        if(timer > 45){
+            timer = 45f;
         }
     }
 
@@ -172,15 +242,15 @@ public class GameManager : MonoBehaviour{
 
     public void AddToTimerC2(){
         timer += 20f;
-        if(timer > 60f){
-            timer = 60f;
+        if(timer > 45f){
+            timer = 45f;
         }
     }
 
     public void AddToTimerC3(){
         timer += 10f;
-        if(timer > 60f){
-            timer = 60f;
+        if(timer > 45f){
+            timer = 45f;
         }
     }
 
@@ -198,6 +268,7 @@ public class GameManager : MonoBehaviour{
             if (healthText != null) healthText.gameObject.SetActive(false);
             if (keysPanel != null) keysPanel.SetActive(false);
             if (gameOverPanel != null) gameOverPanel.SetActive(false);
+            if (treasurePanel != null) treasurePanel.SetActive(false);
         }
     }
 
@@ -210,6 +281,34 @@ public class GameManager : MonoBehaviour{
     {
         string key = $"{SceneManager.GetActiveScene().name}_{playerID}";
         return playerPositions.TryGetValue(key, out position);
+    }
+
+    public bool finalTreasuresCollected(){
+        if(collectedTresures >= 3){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void treasureFound(){
+        collectedTresures += 1;
+        
+    }
+
+    public void foundEC1(){
+        collectedEC1 = true;
+        logoEC1.SetActive(true);
+    }
+
+    public void foundEC2(){
+        collectedEC2 = true;
+        logoEC2.SetActive(true);
+    }
+
+    public void foundEC3(){
+        collectedEC3 = true;
+        logoEC3.SetActive(true);
     }
 
 }

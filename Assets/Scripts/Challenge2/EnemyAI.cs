@@ -75,7 +75,7 @@ public class EnemyAI : MonoBehaviour
         agent.isStopped = false;
         agent.speed = 2f;
         agent.destination = patrolPoints[currentPatrolIndex].position;
-        anim.SetTrigger("Patrol");
+        anim.SetInteger("State", 1);
 
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
@@ -88,7 +88,7 @@ public class EnemyAI : MonoBehaviour
         isWaitingAtPoint = true;
         currentState = EnemyState.Idle;
         agent.isStopped = true;
-        anim.SetTrigger("Idle");
+        anim.SetInteger("State", 0);
 
         yield return new WaitForSeconds(3.5f);
 
@@ -102,7 +102,7 @@ public class EnemyAI : MonoBehaviour
     {
         agent.isStopped = false;
         agent.destination = player.position;
-        anim.SetTrigger("Chase");
+        anim.SetInteger("State", 2);
     }
 
     void Attack()
@@ -111,7 +111,7 @@ public class EnemyAI : MonoBehaviour
 
         Vector3 playerPosition = new Vector3(player.position.x, transform.position.y, player.position.z);
         transform.LookAt(playerPosition);
-        anim.SetTrigger("Attack");
+        anim.SetInteger("State", 3);
 
         if (!isAttacking)
             StartCoroutine(AttackRoutine());
@@ -138,7 +138,7 @@ public class EnemyAI : MonoBehaviour
         agent.isStopped = true;
         StopAllCoroutines();
         // anim.SetTrigger("Die"); // Optional
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 0.5f);
 
     }
 

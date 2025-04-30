@@ -8,6 +8,7 @@ public class ClueManager : MonoBehaviour
   public Image img;
 
   public TMP_Text clueText;
+  public TMP_Text closeText;
   private bool isShowingClue = false;
 
   private void Awake()
@@ -18,36 +19,42 @@ public class ClueManager : MonoBehaviour
       Destroy(gameObject);
 
     clueText.gameObject.SetActive(false);
+    closeText.gameObject.SetActive(false);
     img.gameObject.SetActive(false);
   }
 
-  public void ShowClue(ClueSphere.ClueType clueType)
+  public void ShowClue(ClueSphere.ClueType clueType, string msg)
   {
     string message = "";
 
     switch (clueType)
     {
       case ClueSphere.ClueType.Dialog:
-        message = "You found a clue: Dialog";
+        message = msg;
         break;
       case ClueSphere.ClueType.Endgame:
-        message = "You found a clue: Endgame";
+        message = msg;
+        GameManager.Instance.treasureFound();
         break;
       case ClueSphere.ClueType.PheoHints:
-        message = "You found a clue: PheoHints";
+        message = msg;
         break;
       case ClueSphere.ClueType.Health:
         if(GameManager.Instance.getHealth() < 100){
-          message = "Restored HP for Pheo";
+          message = msg;
           GameManager.Instance.AddToHealth();
         } else {
           message = "Pheo already has max HP";
         }
         break;
+      case ClueSphere.ClueType.Finale:
+        message = msg; 
+        break;
     }
 
     clueText.text = message;
     clueText.gameObject.SetActive(true);
+    closeText.gameObject.SetActive(true);
     img.gameObject.SetActive(true);
     isShowingClue = true;
   }
@@ -57,6 +64,7 @@ public class ClueManager : MonoBehaviour
     if (isShowingClue && Input.GetKeyDown(KeyCode.LeftShift))
     {
       clueText.gameObject.SetActive(false);
+      closeText.gameObject.SetActive(false);
       img.gameObject.SetActive(false);
       isShowingClue = false;
     }
