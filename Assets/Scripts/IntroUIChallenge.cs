@@ -33,7 +33,7 @@ public class IntroUIChallenge : MonoBehaviour
 
             Time.timeScale = 0f; // Pause again
         }
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetButtonDown("Fire1"))
         {
               introPanel.SetActive(false);
             backgroundImage.SetActive(false);

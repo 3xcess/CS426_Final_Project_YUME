@@ -31,7 +31,7 @@ public class IntroUIController : MonoBehaviour
             Cursor.visible = false;
             pressHText.gameObject.SetActive(true);
             return;
-        }
+        } 
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -41,7 +41,7 @@ public class IntroUIController : MonoBehaviour
     void Update()
     {
         
-        if (isStoryActive && Input.GetKeyDown(KeyCode.Return))
+        if (isStoryActive && Input.GetButtonDown("Fire1"))
         {
             CloseStory();
         }
@@ -58,7 +58,7 @@ public class IntroUIController : MonoBehaviour
         }
 
         
-        if (isGameplayHelpActive && Input.GetKeyDown(KeyCode.Return))
+        if (isGameplayHelpActive && Input.GetButtonDown("Fire1"))
         {
             gameplayHelpPanel.SetActive(false);
             Time.timeScale = 1f;

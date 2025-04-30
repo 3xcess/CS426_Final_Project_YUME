@@ -29,7 +29,7 @@ public class StoryAndHelpManager : MonoBehaviour
 
     void Update()
     {
-        if (isStoryActive && Input.GetKeyDown(KeyCode.Return))
+        if (isStoryActive && Input.GetButtonDown("Fire1"))
         {
             CloseStory();
         }
@@ -37,7 +37,7 @@ public class StoryAndHelpManager : MonoBehaviour
         {
             ToggleHelp();
         }
-        else if (isHelpActive && Input.GetKeyDown(KeyCode.Return))
+        else if (isHelpActive && Input.GetButtonDown("Fire1"))
         {
             CloseHelp();
         }

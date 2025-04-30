@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 498a93e2da143624c91cab203080e635
   - enabled: 1
     path: Assets/Scenes/Nightmare.unity
-    guid: 5383f46d9dd274bcb850a6cb3f22ed26
+    guid: b8cdb49d5e843c24caa36ba4132f1d88
   - enabled: 1
     path: Assets/Scenes/Challenge 1.unity
     guid: 6059a97a1e90bf745a6871364829e9a3
@@ -26,9 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 4be98ede0750c4093bdc41cf09446a3d
-  - enabled: 0
-    path: Assets/Scenes/Challenge 2.unity
-    guid: 77f2da69773043a49a5c9286caa1a7b2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
