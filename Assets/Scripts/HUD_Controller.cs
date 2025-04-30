@@ -274,13 +274,17 @@ public class GameManager : MonoBehaviour{
 
     public void SavePlayerPosition(string playerID, Vector3 position)
     {
-        playerPositions[$"{SceneManager.GetActiveScene().name}_{playerID}"] = position;
+        string key = $"{SceneManager.GetActiveScene().name}_{playerID}";
+        Debug.Log($"✅ Saving position for {key}: {position}");
+        playerPositions[key] = position;
     }
 
     public bool TryGetSavedPosition(string playerID, out Vector3 position)
     {
         string key = $"{SceneManager.GetActiveScene().name}_{playerID}";
-        return playerPositions.TryGetValue(key, out position);
+        bool found = playerPositions.TryGetValue(key, out position);
+        Debug.Log(found ? $"✅ Restored position for {key}" : $"❌ No saved position for {key}");
+        return found;
     }
 
     public bool finalTreasuresCollected(){

@@ -27,7 +27,7 @@ public class NightmareStoryManager : MonoBehaviour
 
     void Update()
     {
-        if (storyActive && Input.GetKeyDown(KeyCode.Return)) // Press Enter
+        if (storyActive && Input.GetButtonDown("Fire1")) // Press Enter
         {
             CloseStory();
         }

@@ -24,7 +24,7 @@ public class NightmareHelpUI : MonoBehaviour
         {
             OpenHelp();
         }
-        else if (Input.GetKeyDown(KeyCode.Return) && isHelpOpen) // Return = Enter Key
+        else if (Input.GetButtonDown("Fire1") && isHelpOpen) // Return = Enter Key
         {
             CloseHelp();
         }
