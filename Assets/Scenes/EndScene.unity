@@ -8863,7 +8863,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Credits
+  m_text: '
+
+    Credits
 
     Developed by:
 
