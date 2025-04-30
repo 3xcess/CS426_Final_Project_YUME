@@ -12,6 +12,15 @@ public class GameManager : MonoBehaviour{
     public TMP_Text keysCollected;
     public GameObject keysPanel;
 
+    [Header("Warning Overlay")]
+    public CanvasGroup redFlashOverlay;
+    public float flashSpeed = 2f;
+    public float lowHealthThreshold = 25f;
+    public float lowTimerThreshold = 10f;
+
+    private bool isFlashing = false;
+    private float flashDirection = 1f;
+
     public GameObject treasurePanel;
     public GameObject logoEC1;
     public GameObject logoEC2;
@@ -87,6 +96,48 @@ public class GameManager : MonoBehaviour{
         }
 
         UpdateUI();
+        UpdateLowHealthAndTimerFlash();
+    }
+
+    private void UpdateLowHealthAndTimerFlash()
+    {
+        bool shouldFlash = false;
+        float flashSpeedDynamic = 0f;
+
+        if (SceneManager.GetActiveScene().name == "Nightmare" && health <= lowHealthThreshold)
+        {
+            float healthFactor = 1f - (health / lowHealthThreshold);
+            flashSpeedDynamic = Mathf.Lerp(0.2f, 3f, healthFactor); // 🐢 slower range
+            shouldFlash = true;
+        }
+        else if ((SceneManager.GetActiveScene().name == "Dreams" || SceneManager.GetActiveScene().name == "DW_LowerLevel") && timer <= lowTimerThreshold)
+        {
+            float timerFactor = 1f - (timer / lowTimerThreshold);
+            flashSpeedDynamic = Mathf.Lerp(0.2f, 3f, timerFactor); // 🐢 slower range
+            shouldFlash = true;
+        }
+
+        if (!shouldFlash)
+        {
+            isFlashing = false;
+            redFlashOverlay.alpha = 0f;
+            return;
+        }
+
+        isFlashing = true;
+
+        redFlashOverlay.alpha += flashSpeedDynamic * flashDirection * Time.deltaTime;
+
+        if (redFlashOverlay.alpha >= 0.5f)
+        {
+            redFlashOverlay.alpha = 0.5f;
+            flashDirection = -1f;
+        }
+        else if (redFlashOverlay.alpha <= 0f)
+        {
+            redFlashOverlay.alpha = 0f;
+            flashDirection = 1f;
+        }
     }
 
     private void UpdateUI(){

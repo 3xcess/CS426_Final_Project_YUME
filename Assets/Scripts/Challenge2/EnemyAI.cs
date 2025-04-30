@@ -138,7 +138,7 @@ public class EnemyAI : MonoBehaviour
         agent.isStopped = true;
         StopAllCoroutines();
         // anim.SetTrigger("Die"); // Optional
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 0.5f);
 
     }
 
