@@ -1,57 +1,127 @@
 using UnityEngine;
+using TMPro;
 
 public class IntroUIController : MonoBehaviour
 {
     public GameObject introPanel;
-    public GameObject helpPanel;
+    public GameObject introHelpPanel;
+    public GameObject gameplayHelpPanel;  
     public GameObject videoBackground;
+    public GameObject storyPanel;
+    public TextMeshProUGUI pressHText;
 
-void Start()
-{
-    if (GameManager.Instance.hasIntroPlayed)
+    private bool isStoryActive = false;
+    private static bool storyShown = false;
+    private bool isGameplayHelpActive = false;
+
+    void Start()
     {
-        // Skip intro if already played
-        introPanel.SetActive(false);
-        helpPanel.SetActive(false);
-        videoBackground.SetActive(false);
+        introHelpPanel?.SetActive(false);
+        gameplayHelpPanel?.SetActive(false);
+        storyPanel?.SetActive(false);
+        pressHText?.gameObject.SetActive(false);
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        if (GameManager.Instance.hasIntroPlayed)
+        {
+            introPanel.SetActive(false);
+            videoBackground.SetActive(false);
+            GameManager.Instance.hasGameStarted = true;
 
-        GameManager.Instance.hasGameStarted = true;
-        return;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            pressHText.gameObject.SetActive(true);
+            return;
+        }
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        GameManager.Instance.hasGameStarted = false;
     }
 
-    // First time — show intro
-    helpPanel.SetActive(false);
-   // videoPlayer.Play();
+    void Update()
+    {
+        
+        if (isStoryActive && Input.GetKeyDown(KeyCode.Return))
+        {
+            CloseStory();
+        }
 
-    Cursor.lockState = CursorLockMode.None;
-    Cursor.visible = true;
+        
+        if (GameManager.Instance.hasGameStarted && !isStoryActive && Input.GetKeyDown(KeyCode.H))
+        {
+            isGameplayHelpActive = !isGameplayHelpActive;
+            gameplayHelpPanel.SetActive(isGameplayHelpActive);
+            Time.timeScale = isGameplayHelpActive ? 0f : 1f;
 
-    GameManager.Instance.hasGameStarted = false;
-}
+            Cursor.lockState = isGameplayHelpActive ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = isGameplayHelpActive;
+        }
+
+        
+        if (isGameplayHelpActive && Input.GetKeyDown(KeyCode.Return))
+        {
+            gameplayHelpPanel.SetActive(false);
+            Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            isGameplayHelpActive = false;
+        }
+    }
 
     public void OnStartClicked()
     {
         introPanel.SetActive(false);
-        helpPanel.SetActive(false);
+        introHelpPanel.SetActive(false);
+        videoBackground.SetActive(false);
+
+        if (!storyShown)
+        {
+            ShowStory();
+        }
+        else
+        {
+            StartGameplay();
+        }
+    }
+
+    void ShowStory()
+    {
+        storyPanel.SetActive(true);
+        isStoryActive = true;
+        storyShown = true;
+
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    void CloseStory()
+    {
+        storyPanel.SetActive(false);
+        StartGameplay();
+    }
+
+    void StartGameplay()
+    {
         GameManager.Instance.hasGameStarted = true;
         GameManager.Instance.hasIntroPlayed = true;
 
-        if (videoBackground != null)
-            videoBackground.SetActive(false); 
-        Cursor.visible = false;
+        Time.timeScale = 1f;
+        isStoryActive = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        pressHText?.gameObject.SetActive(true);
     }
 
     public void OnHelpClicked()
     {
-        helpPanel.SetActive(!helpPanel.activeSelf);
+        introHelpPanel.SetActive(!introHelpPanel.activeSelf);
     }
+
     public void OnBackClicked()
     {
-        helpPanel.SetActive(false);
+        introHelpPanel.SetActive(false);
         introPanel.SetActive(true);
     }
 }
