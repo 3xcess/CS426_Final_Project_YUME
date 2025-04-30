@@ -8,6 +8,7 @@ public class ClueManager : MonoBehaviour
   public Image img;
 
   public TMP_Text clueText;
+  public TMP_Text closeText;
   private bool isShowingClue = false;
 
   private void Awake()
@@ -18,6 +19,7 @@ public class ClueManager : MonoBehaviour
       Destroy(gameObject);
 
     clueText.gameObject.SetActive(false);
+    closeText.gameObject.SetActive(false);
     img.gameObject.SetActive(false);
   }
 
@@ -52,6 +54,7 @@ public class ClueManager : MonoBehaviour
 
     clueText.text = message;
     clueText.gameObject.SetActive(true);
+    closeText.gameObject.SetActive(true);
     img.gameObject.SetActive(true);
     isShowingClue = true;
   }
@@ -61,6 +64,7 @@ public class ClueManager : MonoBehaviour
     if (isShowingClue && Input.GetKeyDown(KeyCode.LeftShift))
     {
       clueText.gameObject.SetActive(false);
+      closeText.gameObject.SetActive(false);
       img.gameObject.SetActive(false);
       isShowingClue = false;
     }
