@@ -5,8 +5,8 @@
 **Team Members** : Harsh Kothari , Sujot Singh , Angel Ramirez
 **Development Milestones** 
 - [x] Design Document - *3/05*
-- [x] Assignment 5 - *3/19*
-- [x] Assignment 6 - *3/08*
+- [x] A5 - *3/19*
+- [x] A6 - *3/08*
 - [x] Alpha Test
 - [x] Beta Test
 - [x] Final Relaease
